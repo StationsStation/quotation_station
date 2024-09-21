@@ -20,7 +20,7 @@ skills:
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
-- eightballer/qs_orchestrator_abci:0.1.0:bafybeidsot42ao2y76ljsnv3ljwpivo53ekz7fexja3c3pd4xxjvf25nji
+- eightballer/qs_orchestrator_abci:0.1.0:bafybeidrh7xl4npgabgthbirr4orswput7nsjfxj6sgeiejfpwyiw3iuqe
 behaviours:
   main:
     args: {}

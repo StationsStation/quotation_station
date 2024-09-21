@@ -34,15 +34,15 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/orchestrator:0.1.0:bafybeifw4mymfjd3mi43bd5x4lmr47iaqswwiioozeiwrdmydcpn5p7s3a
-- eightballer/qs_orchestrator_abci:0.1.0:bafybeidsot42ao2y76ljsnv3ljwpivo53ekz7fexja3c3pd4xxjvf25nji
-- eightballer/ui_loader_abci:0.1.0:bafybeieadtbbppml7wpshz6of65isap5hcflmksikpz2okmogxeaegytiu
+- eightballer/orchestrator:0.1.0:bafybeiaukowa36vjzgk2akxfp5qbms6mkgcwrmp3hc2izr72xdudihncsi
+- eightballer/qs_orchestrator_abci:0.1.0:bafybeidrh7xl4npgabgthbirr4orswput7nsjfxj6sgeiejfpwyiw3iuqe
+- eightballer/ui_loader_abci:0.1.0:bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
 customs:
-- eightballer/simple_html:0.1.0:bafybeiavpn5pghscuw2jwxvyxzvcqtrq4mbwvzyrh5hnnwxrvzbrdz2k5q
+- eightballer/simple_html:0.1.0:bafybeifci4jyoknkynthqtxcsgrieukkc4tp6dmyhs2doikcemczuebcx4
 - eightballer/simple_react:0.1.0:bafybeidc3jr5walszlwrnbwuuzob6e22ph7h64k4itxv5omukd2wjzamve
 default_ledger: ethereum
 required_ledgers:

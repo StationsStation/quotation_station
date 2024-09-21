@@ -2,6 +2,8 @@
 
 set -e 
 
+REPO_DIR=$(git rev-parse --show-toplevel)
+
 agent_author=$(echo $1 | cut -d'/' -f1)
 agent_name=$(echo $1 | cut -d'/' -f2)
 
@@ -33,5 +35,32 @@ else
     cp -r ../certs ./
 fi
 
+# spin up the Tendermint Flask server
+CONFIG_FILE="$REPO_DIR/scripts/tendermint-docker-compose.yml"
+docker compose -f $CONFIG_FILE up -d
+
 # finally, run the agent
+# We wait for 20 seconds or for the tm node to be ready.
+tries=0
+tm_started=false
+while [ $tries -lt 20 ]; do
+    tries=$((tries + 1))
+    if curl localhost:8080/hard_reset > /dev/null 2>&1; then
+        echo "Tendermint node is ready."
+        tm_started=true
+        break
+    fi
+    sleep 1
+done
+if [ "$tm_started" = false ]; then
+    echo "Tendermint node did not start in time. Please verify that the docker tendermint node is running."
+    exit 1
+fi
+
+echo "Starting the agent..."
+
 aea -s run
+
+echo "Killing tendermint"
+
+docker compose -f $CONFIG_FILE kill && docker compose -f $CONFIG_FILE down

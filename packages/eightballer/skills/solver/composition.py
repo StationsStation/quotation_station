@@ -55,7 +55,7 @@ from packages.eightballer.skills.qs_solver_abci.rounds import (
 
 abci_app_transition_mapping: AbciAppTransitionMapping = {
     FinishedRegistrationRound: AwaitingOpportunityRound,
-    SuccessfulExecutionRound: RandomnessTransactionSubmissionRound,
+    SuccessfulExecutionRound: ResetAndPauseRound,
     FinalisedSwapTransactionsRound: RandomnessTransactionSubmissionRound,
     FinalisedClaimTransactionsRound: RandomnessTransactionSubmissionRound,
     FinalisedRefundTransactionsRound: RandomnessTransactionSubmissionRound,
