@@ -45,6 +45,13 @@ from packages.eightballer.skills.qs_solver_abci.payloads import (
 )
 
 
+class TxState(Enum):
+    PRE_TRANSACTION "pre_transaction"
+    POST_NEW_SWAP = "post_new_swap"
+    POST_CLAIM = "post_claim"
+    POST_REFUND = "post_refund"
+
+
 class Event(Enum):
     """QSSolverAbciApp Events"""
 
@@ -73,45 +80,25 @@ class SynchronizedData(BaseSynchronizedData):
         """Get the most_voted_tx_hash."""
         return cast(float, self.db.get_strict("most_voted_tx_hash"))
 
+    @property
+    def opportunities(self) -> list:
+        """Get the opportunities."""
+        return self.db.get("opportunities", [])
 
-class AwaitQuotesRound(CollectSameUntilThresholdRound):
-    """AwaitQuotesRound"""
+    @property
+    def quotes(self) -> list:
+        """Get the quotes."""
+        return self.db.get("quotes", [])
 
-    payload_class = AwaitQuotesPayload
-    payload_attribute = ""  # TODO: update
-    synchronized_data_class = SynchronizedData
+    @property
+    def counter_party_timeout(self) -> bool:
+        """Check if counter party timeout was hit."""
+        return self.db.get("counter_party_timeout", False)
 
-    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
-        """Process the end of the block."""
-        raise NotImplementedError
-
-    def check_payload(self, payload: AwaitQuotesPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: AwaitQuotesPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
-
-
-class AwaitSupplierTransactionsRound(CollectSameUntilThresholdRound):
-    """AwaitSupplierTransactionsRound"""
-
-    payload_class = AwaitSupplierTransactionsPayload
-    payload_attribute = ""  # TODO: update
-    synchronized_data_class = SynchronizedData
-
-    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
-        """Process the end of the block."""
-        raise NotImplementedError
-
-    def check_payload(self, payload: AwaitSupplierTransactionsPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: AwaitSupplierTransactionsPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
+    @property
+    def tx_state(self) -> TxState:
+        """Get the transaction state."""
+        return self.db.get("tx_state")
 
 
 class AwaitingOpportunityRound(CollectSameUntilThresholdRound):
@@ -123,115 +110,11 @@ class AwaitingOpportunityRound(CollectSameUntilThresholdRound):
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
-        raise NotImplementedError
 
-    def check_payload(self, payload: AwaitingOpportunityPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
+        if self.opportunities:
+            return self.synchronized_data, Event.TRIGGERED
 
-    def process_payload(self, payload: AwaitingOpportunityPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
-
-
-class PostTransactionRound(CollectSameUntilThresholdRound):
-    """PostTransactionRound"""
-
-    payload_class = PostTransactionPayload
-    payload_attribute = ""  # TODO: update
-    synchronized_data_class = SynchronizedData
-
-    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
-        """Process the end of the block."""
-        raise NotImplementedError
-
-    def check_payload(self, payload: PostTransactionPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: PostTransactionPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
-
-
-class PrepareClaimTransactionsRound(CollectSameUntilThresholdRound):
-    """PrepareClaimTransactionsRound"""
-
-    payload_class = PrepareClaimTransactionsPayload
-    payload_attribute = ""  # TODO: update
-    synchronized_data_class = SynchronizedData
-
-    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
-        """Process the end of the block."""
-        raise NotImplementedError
-
-    def check_payload(self, payload: PrepareClaimTransactionsPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: PrepareClaimTransactionsPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
-
-
-class PrepareNewSwapTransactionsRound(CollectSameUntilThresholdRound):
-    """PrepareNewSwapTransactionsRound"""
-
-    payload_class = PrepareNewSwapTransactionsPayload
-    payload_attribute = ""  # TODO: update
-    synchronized_data_class = SynchronizedData
-
-    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
-        """Process the end of the block."""
-        raise NotImplementedError
-
-    def check_payload(self, payload: PrepareNewSwapTransactionsPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: PrepareNewSwapTransactionsPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
-
-
-class PrepareRefundTransactionsRound(CollectSameUntilThresholdRound):
-    """PrepareRefundTransactionsRound"""
-
-    payload_class = PrepareRefundTransactionsPayload
-    payload_attribute = ""  # TODO: update
-    synchronized_data_class = SynchronizedData
-
-    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
-        """Process the end of the block."""
-        raise NotImplementedError
-
-    def check_payload(self, payload: PrepareRefundTransactionsPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: PrepareRefundTransactionsPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
-
-
-class SelectQuotesRound(CollectSameUntilThresholdRound):
-    """SelectQuotesRound"""
-
-    payload_class = SelectQuotesPayload
-    payload_attribute = ""  # TODO: update
-    synchronized_data_class = SynchronizedData
-
-    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
-        """Process the end of the block."""
-        raise NotImplementedError
-
-    def check_payload(self, payload: SelectQuotesPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: SelectQuotesPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
+        return self.synchronized_data, Event.NO_QUOTES
 
 
 class SubmitRFQRound(CollectSameUntilThresholdRound):
@@ -243,15 +126,121 @@ class SubmitRFQRound(CollectSameUntilThresholdRound):
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
-        raise NotImplementedError
 
-    def check_payload(self, payload: SubmitRFQPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
+        return self.synchronized_data, Event.DONE
 
-    def process_payload(self, payload: SubmitRFQPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
+
+class AwaitQuotesRound(CollectSameUntilThresholdRound):
+    """AwaitQuotesRound"""
+
+    payload_class = AwaitQuotesPayload
+    payload_attribute = ""  # TODO: update
+    synchronized_data_class = SynchronizedData
+
+    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
+        """Process the end of the block."""
+
+        if not self.quotes:
+            return self.synchronized_data, Event.NO_QUOTES
+
+        return self.synchronized_data, Event.QUOTES
+
+
+class SelectQuotesRound(CollectSameUntilThresholdRound):
+    """SelectQuotesRound"""
+
+    payload_class = SelectQuotesPayload
+    payload_attribute = ""  # TODO: update
+    synchronized_data_class = SynchronizedData
+
+    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
+        """Process the end of the block."""
+
+        return self.synchronized_data, Event.ACCEPT_QUOTES
+
+
+class PrepareNewSwapTransactionsRound(CollectSameUntilThresholdRound):
+    """PrepareNewSwapTransactionsRound"""
+
+    payload_class = PrepareNewSwapTransactionsPayload
+    payload_attribute = ""  # TODO: update
+    synchronized_data_class = SynchronizedData
+
+    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
+        """Process the end of the block."""
+
+        return self.synchronized_data, Event.DONE
+        # return self.synchronized_data, Event.FINALISED
+
+
+class AwaitSupplierTransactionsRound(CollectSameUntilThresholdRound):
+    """AwaitSupplierTransactionsRound"""
+
+    payload_class = AwaitSupplierTransactionsPayload
+    payload_attribute = ""  # TODO: update
+    synchronized_data_class = SynchronizedData
+
+    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
+        """Process the end of the block."""
+
+        if self.counter_party_timeout:
+            self.synchronized_data, Event.COUNTER_PARTY_TIMEOUT
+
+        return self.synchronized_data, Event.DONE
+
+
+class PrepareClaimTransactionsRound(CollectSameUntilThresholdRound):
+    """PrepareClaimTransactionsRound"""
+
+    payload_class = PrepareClaimTransactionsPayload
+    payload_attribute = ""  # TODO: update
+    synchronized_data_class = SynchronizedData
+
+    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
+        """Process the end of the block."""
+
+        if self.tx_state == TxState.POST_CLAIM:
+            self.tx_state = TxState.PRE_TRANSACTION
+            return self.synchronized_data, Event.FINALISED
+
+        self.tx_state = TxState.POST_CLAIM
+        return self.synchronized_data, Event.DONE
+
+
+class PrepareRefundTransactionsRound(CollectSameUntilThresholdRound):
+    """PrepareRefundTransactionsRound"""
+
+    payload_class = PrepareRefundTransactionsPayload
+    payload_attribute = ""  # TODO: update
+    synchronized_data_class = SynchronizedData
+
+    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
+        """Process the end of the block."""
+
+        if self.tx_state == TxState.POST_REFUND:
+            self.tx_state = TxState.PRE_TRANSACTION
+            return self.synchronized_data, Event.FINALISED
+
+        return self.synchronized_data, Event.DONE
+
+
+class PostTransactionRound(CollectSameUntilThresholdRound):
+    """PostTransactionRound"""
+
+    payload_class = PostTransactionPayload
+    payload_attribute = ""  # TODO: update
+    synchronized_data_class = SynchronizedData
+
+    def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
+        """Process the end of the block."""
+
+        if self.tx_state == TxState.POST_NEW_SWAP:
+            return self.synchronized_data, Event.POST_NEW_SWAP
+        elif self.tx_state == TxState.POST_CLAIM:
+            return self.synchronized_data, Event.POST_CLAIM
+        elif self.tx_state == TxState.POST_REFUND:
+            return self.synchronized_data, Event.POST_REFUND
+        raise ValueError(f"FSM design error, incorrect transation state: {self.tx_state}")
 
 
 class FinalisedClaimTransactionsRound(DegenerateRound):
