@@ -19,7 +19,7 @@
 
 """This module contains the shared state for the abci skill of CompositeAbciApp."""
 
-from packages.valory.skills.abstract_round_abci.models import BaseParams
+from packages.valory.skills.abstract_round_abci.models import ApiSpecs, BaseParams
 from packages.valory.skills.abstract_round_abci.models import (
     BenchmarkTool as BaseBenchmarkTool,
 )
@@ -34,6 +34,10 @@ class SharedState(BaseSharedState):
     """Keep the current shared state of the composite skill."""
 
     abci_app_cls = CompositeAbciApp
+
+
+class RandomnessApi(ApiSpecs):
+    """A model for randomness api specifications."""
 
 
 Params = BaseParams

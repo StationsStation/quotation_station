@@ -8,11 +8,11 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeigbhgaejdudzeq5hyrukl4gmuigsc7lnqufmgnaaikxunbkzvdcju
   behaviours.py: bafybeiham7rrxp6gbztz2xwszuxfq4ln4stcwmfgns57tyhdk723qx6lbu
-  composition.py: bafybeigbbb2nslqnenu5gqtuc7tyahylvxipu4bzqay5aip72n2mjhqp5i
+  composition.py: bafybeibloj6y6bgudvzx5fpbcxkokfi23wooiafj5ncnyb3zhuipz7an7q
   dialogues.py: bafybeicfemtv4fflm2htg6h5cv23ximivfyfdddfbsht3tsvftp3ixdh4i
+  fsm_specification.yaml: bafybeiawtyaatpzvkohtkunezrrtlblowpubknlpcpob2vo56pklc3yhta
   handlers.py: bafybeiak6y6smaf3l32y3p7pnqcmncrlgmhyknf6dexcgrpvzbkc44227y
   models.py: bafybeibt7t7j6vw5vbmwfxig5qonst7yq6dmzefplrjoamr4ycrr7r62ni
-  payloads.py: bafybeifhuhr3ds3julb7oob6ysg2mgqrhgebc7e5hvde3obt4kf2ockgty
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -22,7 +22,7 @@ skills:
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
 - valory/transaction_settlement_abci:0.1.0:bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm
-- eightballer/qs_solver_abci:0.1.0:bafybeif4il2z2t5ru7h6mu6gd4lughhercgkkmb3lox4urnytldtoxp3xm
+- eightballer/qs_solver_abci:0.1.0:bafybeia5lmrgi2i3r4lfxbybjclh2xayopjibp35fqg44c54ooqzxgprty
 behaviours:
   main:
     args: {}
@@ -129,6 +129,17 @@ models:
       use_termination: false
       validate_timeout: 1205
     class_name: Params
+  randomness_api:
+    args:
+      api_id: cloudflare
+      headers: {}
+      method: GET
+      parameters: {}
+      response_key: null
+      response_type: dict
+      retries: 5
+      url: https://drand.cloudflare.com/public/latest
+    class_name: RandomnessApi
   requests:
     args: {}
     class_name: Requests
