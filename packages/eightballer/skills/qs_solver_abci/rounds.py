@@ -20,7 +20,7 @@
 """This package contains the rounds of QSSolverAbciApp."""
 
 from enum import Enum
-from typing import Dict, FrozenSet, List, Optional, Set, Tuple
+from typing import Dict, FrozenSet, List, Optional, Set, Tuple, cast
 
 from packages.valory.skills.abstract_round_abci.base import (
     AbciApp,
@@ -169,7 +169,7 @@ class PrepareNewSwapTransactionsRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.context.params.executor_mode == "EOA":
+        if self.context.params.executor_mode.value == "EOA":
             return self.synchronized_data, Event.FINALISED
 
         return self.synchronized_data, Event.DONE
@@ -202,7 +202,7 @@ class PrepareClaimTransactionsRound(CollectSameUntilThresholdRound):
         """Process the end of the block."""
 
         if (self.synchronized_data.tx_state == TxState.POST_CLAIM
-            or self.context.params.executor_mode == "EOA"):
+            or self.context.params.executor_mode.value == "EOA"):
             return self.synchronized_data, Event.FINALISED
 
         self.synchronized_data.tx_state = TxState.POST_CLAIM
@@ -220,7 +220,7 @@ class PrepareRefundTransactionsRound(CollectSameUntilThresholdRound):
         """Process the end of the block."""
 
         if (self.synchronized_data.tx_state == TxState.POST_REFUND
-            or self.params.executor_setup.execution_mode == "EOA"):
+            or self.params.executor_setup.execution_mode.value == "EOA"):
             # self.tx_state = TxState.PRE_TRANSACTION
             return self.synchronized_data, Event.FINALISED
 

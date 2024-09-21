@@ -19,7 +19,7 @@
 
 """This module contains the shared state for the abci skill of CompositeAbciApp."""
 
-from enum import StrEnum
+from enum import Enum
 
 from packages.valory.skills.abstract_round_abci.models import ApiSpecs, BaseParams
 from packages.valory.skills.abstract_round_abci.models import (
@@ -32,7 +32,7 @@ from packages.valory.skills.abstract_round_abci.models import (
 from packages.eightballer.skills.solver.composition import CompositeAbciApp
 
 
-class ExecutionMode(StrEnum):
+class ExecutionMode(Enum):
     EOA = "EOA"
     MULTISIG = "MULTI"
 
