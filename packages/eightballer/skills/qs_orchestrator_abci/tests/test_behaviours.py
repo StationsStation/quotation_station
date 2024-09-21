@@ -31,17 +31,17 @@ from packages.valory.skills.abstract_round_abci.behaviours import (
     BaseBehaviour,
     make_degenerate_behaviour,
 )
-from packages.eightballer.skills.orchestrator_abci.behaviours import (
-    OrchestratorBaseBehaviour,
-    OrchestratorRoundBehaviour,
+from packages.eightballer.skills.qs_orchestrator_abci.behaviours import (
+    QSOrchestratorBaseBehaviour,
+    QSOrchestratorRoundBehaviour,
     CreateContainersBehaviour,
     HealthCheckBehaviour,
 )
-from packages.eightballer.skills.orchestrator_abci.rounds import (
+from packages.eightballer.skills.qs_orchestrator_abci.rounds import (
     SynchronizedData,
     DegenerateRound,
     Event,
-    OrchestratorAbciApp,
+    QSOrchestratorAbciApp,
     CreateContainersRound,
     HealthCheckRound,
     SuccessfulDeploymentRound,
@@ -62,14 +62,14 @@ class BehaviourTestCase:
     kwargs: Dict[str, Any] = field(default_factory=dict)
 
 
-class BaseOrchestratorTest(FSMBehaviourBaseCase):
+class BaseQSOrchestratorTest(FSMBehaviourBaseCase):
     """Base test case."""
 
     path_to_skill = Path(__file__).parent.parent
 
-    behaviour: OrchestratorRoundBehaviour
-    behaviour_class: Type[OrchestratorBaseBehaviour]
-    next_behaviour_class: Type[OrchestratorBaseBehaviour]
+    behaviour: QSOrchestratorRoundBehaviour
+    behaviour_class: Type[QSOrchestratorBaseBehaviour]
+    next_behaviour_class: Type[QSOrchestratorBaseBehaviour]
     synchronized_data: SynchronizedData
     done_event = Event.DONE
 
@@ -100,7 +100,7 @@ class BaseOrchestratorTest(FSMBehaviourBaseCase):
         assert self.current_behaviour_id == self.next_behaviour_class.behaviour_id
 
 
-class TestCreateContainersBehaviour(BaseOrchestratorTest):
+class TestCreateContainersBehaviour(BaseQSOrchestratorTest):
     """Tests CreateContainersBehaviour"""
 
     # TODO: set next_behaviour_class
@@ -118,7 +118,7 @@ class TestCreateContainersBehaviour(BaseOrchestratorTest):
         self.complete(test_case.event)
 
 
-class TestHealthCheckBehaviour(BaseOrchestratorTest):
+class TestHealthCheckBehaviour(BaseQSOrchestratorTest):
     """Tests HealthCheckBehaviour"""
 
     # TODO: set next_behaviour_class

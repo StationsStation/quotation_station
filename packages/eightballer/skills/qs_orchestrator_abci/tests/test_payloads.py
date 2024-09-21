@@ -17,25 +17,35 @@
 #
 # ------------------------------------------------------------------------------
 
-"""This module contains the shared state for the abci skill of OrchestratorAbciApp."""
+"""This package contains payload tests for the QSOrchestratorAbciApp."""
 
-from packages.valory.skills.abstract_round_abci.models import BaseParams
-from packages.valory.skills.abstract_round_abci.models import (
-    BenchmarkTool as BaseBenchmarkTool,
+from typing import Type, Hashable
+from dataclasses import dataclass
+
+import pytest
+
+from packages.eightballer.skills.qs_orchestrator_abci.payloads import (
+    BaseTxPayload,
+    CreateContainersPayload,
+    HealthCheckPayload,
 )
-from packages.valory.skills.abstract_round_abci.models import Requests as BaseRequests
-from packages.valory.skills.abstract_round_abci.models import (
-    SharedState as BaseSharedState,
-)
-from packages.eightballer.skills.orchestrator_abci.rounds import OrchestratorAbciApp
 
 
-class SharedState(BaseSharedState):
-    """Keep the current shared state of the skill."""
+@dataclass
+class PayloadTestCase:
+    """PayloadTestCase"""
 
-    abci_app_cls = OrchestratorAbciApp
+    name: str
+    payload_cls: Type[BaseTxPayload]
+    content: Hashable
 
 
-Params = BaseParams
-Requests = BaseRequests
-BenchmarkTool = BaseBenchmarkTool
+# TODO: provide test cases
+@pytest.mark.parametrize("test_case", [])
+def test_payloads(test_case: PayloadTestCase) -> None:
+    """Tests for QSOrchestratorAbciApp payloads"""
+
+    payload = test_case.payload_cls(sender="sender", content=test_case.content)
+    assert payload.sender == "sender"
+    assert payload.from_json(payload.json) == payload
+

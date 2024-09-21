@@ -9,7 +9,7 @@ fingerprint:
   __init__.py: bafybeiba2qyjqfujzqazhdzdlolh5upetrvw4gtvj7snlajbups3no65ym
   behaviours.py: bafybeic5mppu7wn5m2zqa2c4uvomdwjytlff25ks5bi6ehkqum7fvlgoku
   dialogues.py: bafybeialbgbjapjc5smahmmnlv6h4k53sarkleqhybvetrtikb6ftl3lwe
-  exector_fsm.yaml: bafybeier23tyjiet5m7l6gi57a26qijw3ltbdyei2li5qquyzybipxviaa
+  fsm_specification.yaml: bafybeier23tyjiet5m7l6gi57a26qijw3ltbdyei2li5qquyzybipxviaa
   handlers.py: bafybeidphljjj67bl724mysr3kqx2ygrbnakb5ppxss5vdpe456mvi4wzu
   models.py: bafybeih3g26i25b3uupeardtjuyra7rxmpffzevhvgq4z7smsdppmp5ozu
   payloads.py: bafybeibxutwxawbvsz4k45ohsir5p5hvmipq75cif5dp54g57hs4pls6eq
