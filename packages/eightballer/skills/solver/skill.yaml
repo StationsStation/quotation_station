@@ -12,7 +12,7 @@ fingerprint:
   dialogues.py: bafybeicfemtv4fflm2htg6h5cv23ximivfyfdddfbsht3tsvftp3ixdh4i
   fsm_specification.yaml: bafybeiawtyaatpzvkohtkunezrrtlblowpubknlpcpob2vo56pklc3yhta
   handlers.py: bafybeiak6y6smaf3l32y3p7pnqcmncrlgmhyknf6dexcgrpvzbkc44227y
-  models.py: bafybeict2edzluboqrphn7m7srokipgilrugj4qxxdv3hnmcaotkyhuyte
+  models.py: bafybeif45bqxf7fsolewsygtjr4g6eszowai6dhfsz2acipiapourqhiyq
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -22,7 +22,7 @@ skills:
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
 - valory/transaction_settlement_abci:0.1.0:bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm
-- eightballer/qs_solver_abci:0.1.0:bafybeigpa7laobdfumvw75bjlzv5xb3o4v6ku3p7fqomwhuxbr7oqhukma
+- eightballer/qs_solver_abci:0.1.0:bafybeicpaautpyfmqz2qwb6ebbdzl3mx26fxvpipwhnidiyoafxhwoolii
 behaviours:
   main:
     args: {}
