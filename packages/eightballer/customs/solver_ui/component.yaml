@@ -14,7 +14,7 @@ fingerprint:
   tests/test_custom.py: bafybeidafbtgi6v6gnvlkaxiyocgebdkrgcfzoj4j27zsfjbjjviaio6li
 fingerprint_ignore_patterns: []
 dependencies: {}
-api_spec: open_api3_spec.yaml
+api_spec: openapi3_spec.yaml
 frontend_dir: build
 behaviours:
 - class_name: LogReadingBehaviour
