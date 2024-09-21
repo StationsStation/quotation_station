@@ -8,6 +8,9 @@
 .history
 .idea
 .mypy_cache
+smart_contracts/out
+smart_contracts/cache
+
 
 *private_key*
 keys.json
