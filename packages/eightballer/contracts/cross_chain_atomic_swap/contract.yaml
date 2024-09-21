@@ -6,8 +6,9 @@ description: The scaffold contract scaffolds a contract to be implemented by the
 license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  __init__.py: bafybeib7kldrynoa65npbg7n2aaeytc5p2y4w43rflslri2nnsubo4afby
-  contract.py: bafybeibpaw64qv53ltcqcjhhy4rcb2jihtpyg3y52jmuh2uw7vgb5bnkye
+  __init__.py: bafybeid5m4po4ely5s5x2hbtgimf7xuy3xelngtc3zfgu3nrqulcipya6i
+  build/cross_chain_atomic_swap.json: bafybeidxv3x53ssiqxuibs7yvfrn5d6o5xqjyyqnh2oz3ke3l3sd7bpjly
+  contract.py: bafybeic2t35eg3wilb6jk2gniy4smvsz66h2wrlhli2v35sexxwia7dse4
 fingerprint_ignore_patterns: []
 class_name: CrossChainAtomicSwap
 contract_interface_paths:
