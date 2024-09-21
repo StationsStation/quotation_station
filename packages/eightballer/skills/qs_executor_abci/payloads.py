@@ -19,6 +19,7 @@
 
 """This module contains the transaction payloads of the QSExecutorAbciApp."""
 
+from typing import Any
 from dataclasses import dataclass
 
 from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
@@ -28,47 +29,46 @@ from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
 class AwaitBuyerTransactionsPayload(BaseTxPayload):
     """Represent a transaction payload for the AwaitBuyerTransactionsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class AwaitRFQsPayload(BaseTxPayload):
     """Represent a transaction payload for the AwaitRFQsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class CollectExchangeDataPayload(BaseTxPayload):
     """Represent a transaction payload for the CollectExchangeDataRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PostTransactionPayload(BaseTxPayload):
     """Represent a transaction payload for the PostTransactionRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PrepareClaimTransactionsPayload(BaseTxPayload):
     """Represent a transaction payload for the PrepareClaimTransactionsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PrepareRefundTransactionsPayload(BaseTxPayload):
     """Represent a transaction payload for the PrepareRefundTransactionsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PrepareSupplyTransactionPayload(BaseTxPayload):
     """Represent a transaction payload for the PrepareSupplyTransactionRound."""
 
-    # TODO: define your attributes
-
+    content: Any

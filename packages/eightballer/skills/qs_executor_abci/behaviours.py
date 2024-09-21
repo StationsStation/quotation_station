@@ -76,7 +76,7 @@ class AwaitBuyerTransactionsBehaviour(QSExecutorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = AwaitBuyerTransactionsPayload(sender=sender, content=...)
+            payload = AwaitBuyerTransactionsPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
@@ -96,7 +96,7 @@ class AwaitRFQsBehaviour(QSExecutorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = AwaitRFQsPayload(sender=sender, content=...)
+            payload = AwaitRFQsPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
@@ -116,7 +116,7 @@ class CollectExchangeDataBehaviour(QSExecutorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = CollectExchangeDataPayload(sender=sender, content=...)
+            payload = CollectExchangeDataPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
@@ -136,7 +136,7 @@ class PostTransactionBehaviour(QSExecutorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = PostTransactionPayload(sender=sender, content=...)
+            payload = PostTransactionPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
@@ -156,7 +156,7 @@ class PrepareClaimTransactionsBehaviour(QSExecutorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = PrepareClaimTransactionsPayload(sender=sender, content=...)
+            payload = PrepareClaimTransactionsPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
@@ -176,7 +176,7 @@ class PrepareRefundTransactionsBehaviour(QSExecutorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = PrepareRefundTransactionsPayload(sender=sender, content=...)
+            payload = PrepareRefundTransactionsPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
@@ -196,7 +196,7 @@ class PrepareSupplyTransactionBehaviour(QSExecutorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = PrepareSupplyTransactionPayload(sender=sender, content=...)
+            payload = PrepareSupplyTransactionPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
