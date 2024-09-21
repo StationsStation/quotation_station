@@ -46,7 +46,7 @@ from packages.eightballer.skills.qs_solver_abci.payloads import (
 
 
 class TxState(Enum):
-    PRE_TRANSACTION "pre_transaction"
+    PRE_TRANSACTION = "pre_transaction"
     POST_NEW_SWAP = "post_new_swap"
     POST_CLAIM = "post_claim"
     POST_REFUND = "post_refund"
@@ -83,12 +83,12 @@ class SynchronizedData(BaseSynchronizedData):
     @property
     def opportunities(self) -> list:
         """Get the opportunities."""
-        return self.db.get("opportunities", [])
+        return self.db.get("opportunities", ["opportunity"])
 
     @property
     def quotes(self) -> list:
         """Get the quotes."""
-        return self.db.get("quotes", [])
+        return self.db.get("quotes", ["quote"])
 
     @property
     def counter_party_timeout(self) -> bool:
@@ -111,10 +111,10 @@ class AwaitingOpportunityRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.opportunities:
+        if self.synchronized_data.opportunities:
             return self.synchronized_data, Event.TRIGGERED
 
-        return self.synchronized_data, Event.NO_QUOTES
+        return self.synchronized_data, Event.NOT_TRIGGERED
 
 
 class SubmitRFQRound(CollectSameUntilThresholdRound):
@@ -140,7 +140,7 @@ class AwaitQuotesRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if not self.quotes:
+        if not self.synchronized_data.quotes:
             return self.synchronized_data, Event.NO_QUOTES
 
         return self.synchronized_data, Event.QUOTES
@@ -183,7 +183,7 @@ class AwaitSupplierTransactionsRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.counter_party_timeout:
+        if self.synchronized_data.counter_party_timeout:
             self.synchronized_data, Event.COUNTER_PARTY_TIMEOUT
 
         return self.synchronized_data, Event.DONE
@@ -199,8 +199,8 @@ class PrepareClaimTransactionsRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.tx_state == TxState.POST_CLAIM:
-            self.tx_state = TxState.PRE_TRANSACTION
+        if self.synchronized_data.tx_state == TxState.POST_CLAIM:
+            # self.tx_state = TxState.PRE_TRANSACTION
             return self.synchronized_data, Event.FINALISED
 
         self.tx_state = TxState.POST_CLAIM
@@ -217,8 +217,8 @@ class PrepareRefundTransactionsRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.tx_state == TxState.POST_REFUND:
-            self.tx_state = TxState.PRE_TRANSACTION
+        if self.synchronized_data.tx_state == TxState.POST_REFUND:
+            # self.tx_state = TxState.PRE_TRANSACTION
             return self.synchronized_data, Event.FINALISED
 
         return self.synchronized_data, Event.DONE
@@ -234,13 +234,14 @@ class PostTransactionRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.tx_state == TxState.POST_NEW_SWAP:
+        tx_state = self.synchronized_data.tx_state
+        if tx_state == TxState.POST_NEW_SWAP:
             return self.synchronized_data, Event.POST_NEW_SWAP
-        elif self.tx_state == TxState.POST_CLAIM:
+        elif tx_state == TxState.POST_CLAIM:
             return self.synchronized_data, Event.POST_CLAIM
-        elif self.tx_state == TxState.POST_REFUND:
+        elif tx_state == TxState.POST_REFUND:
             return self.synchronized_data, Event.POST_REFUND
-        raise ValueError(f"FSM design error, incorrect transation state: {self.tx_state}")
+        raise ValueError(f"FSM design error, incorrect transation state: {tx_state}")
 
 
 class FinalisedClaimTransactionsRound(DegenerateRound):
