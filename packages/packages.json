@@ -1,6 +1,7 @@
 {
     "dev": {
         "protocol/eightballer/rfq_protocol/0.1.0": "bafybeibxdtj6rhsyn5gp2k5xwm54yegmitdckaiep5opbf4pzz5zobfy3y",
+        "protocol/eightballer/docker_command/0.1.0": "bafybeig7khuzo46vhosnltntzsokxdkhtfgb4usbrluu5bdssw6nylca6m",
         "skill/eightballer/qs_solver_abci/0.1.0": "bafybeif4il2z2t5ru7h6mu6gd4lughhercgkkmb3lox4urnytldtoxp3xm",
         "skill/eightballer/qs_executor_abci/0.1.0": "bafybeifcksttx3aq7c7ltvi5sjbw5da5moigx6n7saiunuksev3tqdyhee",
         "skill/eightballer/solver/0.1.0": "bafybeibmx5rx56lux3n4a34cucrbql46soj5hfun36do3kewtzdv7efjl4",
