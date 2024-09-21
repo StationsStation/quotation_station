@@ -1,5 +1,6 @@
 {
     "dev": {
+        "protocol/eightballer/rfq_protocol/0.1.0": "bafybeibxdtj6rhsyn5gp2k5xwm54yegmitdckaiep5opbf4pzz5zobfy3y",
         "skill/eightballer/qs_solver_abci/0.1.0": "bafybeif4il2z2t5ru7h6mu6gd4lughhercgkkmb3lox4urnytldtoxp3xm",
         "skill/eightballer/qs_executor_abci/0.1.0": "bafybeifcksttx3aq7c7ltvi5sjbw5da5moigx6n7saiunuksev3tqdyhee",
         "skill/eightballer/solver/0.1.0": "bafybeibmx5rx56lux3n4a34cucrbql46soj5hfun36do3kewtzdv7efjl4",
@@ -7,13 +8,13 @@
         "skill/eightballer/orchestrator_abci/0.1.0": "bafybeifhfqurotukxdrl4paswhewm35epmfkpjzshuakmjqr4cvcgfdbtq",
         "skill/eightballer/orchestrator/0.1.0": "bafybeifw4mymfjd3mi43bd5x4lmr47iaqswwiioozeiwrdmydcpn5p7s3a",
         "skill/eightballer/qs_orchestrator_abci/0.1.0": "bafybeidsot42ao2y76ljsnv3ljwpivo53ekz7fexja3c3pd4xxjvf25nji",
-        "agent/eightballer/solver/0.1.0": "bafybeibijhvucordph2akv3wg5as3cfemxvvnwwyfq4pbbsir2xa65dzge",
-        "agent/eightballer/executor/0.1.0": "bafybeihzwnebizlmwlf2m6pjoz7hso37lygclonb3256zkm33sudel4ee4",
-        "agent/eightballer/orchestrator/0.1.0": "bafybeiatiteywrboyawe5xvnrbemoazuq36upmuxk5ol3nftiirgcxz2h4"
+        "agent/eightballer/solver/0.1.0": "bafybeihvf6zb2vy22km7bv5wfggwwy5xfuhqqac5ar6duxtpkhfhhufdua",
+        "agent/eightballer/executor/0.1.0": "bafybeieqjh2fnnwuatmlrl4oddjzpoc33rllifrvwrmpe3jlfb33u3heny",
+        "agent/eightballer/orchestrator/0.1.0": "bafybeifkgejculudjg626r27x7yvq43ydaxt6i5uu7pz36oaiv5xah7oge"
     },
     "third_party": {
         "custom/eightballer/simple_react/0.1.0": "bafybeidc3jr5walszlwrnbwuuzob6e22ph7h64k4itxv5omukd2wjzamve",
-        "custom/eightballer/simple_html/0.1.0": "bafybeifci4jyoknkynthqtxcsgrieukkc4tp6dmyhs2doikcemczuebcx4",
+        "custom/eightballer/simple_html/0.1.0": "bafybeiavpn5pghscuw2jwxvyxzvcqtrq4mbwvzyrh5hnnwxrvzbrdz2k5q",
         "protocol/valory/abci/0.1.0": "bafybeiaqmp7kocbfdboksayeqhkbrynvlfzsx4uy4x6nohywnmaig4an7u",
         "protocol/valory/acn/1.1.0": "bafybeidluaoeakae3exseupaea4i3yvvk5vivyt227xshjlffywwxzcxqe",
         "protocol/valory/contract_api/1.0.0": "bafybeidgu7o5llh26xp3u3ebq3yluull5lupiyeu6iooi2xyymdrgnzq5i",
@@ -41,8 +42,8 @@
         "skill/valory/abstract_round_abci/0.1.0": "bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim",
         "skill/valory/reset_pause_abci/0.1.0": "bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im",
         "skill/valory/registration_abci/0.1.0": "bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta",
-        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m",
-        "skill/eightballer/trader_abci/0.1.0": "bafybeif6tvb2cskwen66w43fsnfres4ct3uwz4jt4tm5unty42kmo3t4qy",
+        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeieadtbbppml7wpshz6of65isap5hcflmksikpz2okmogxeaegytiu",
+        "skill/eightballer/trader_abci/0.1.0": "bafybeidhl22yhhr3d2qobxabbsthpffng4zq2j3ci4ocbgu3ztufyn3biq",
         "skill/valory/transaction_settlement_abci/0.1.0": "bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm"
     }
 }

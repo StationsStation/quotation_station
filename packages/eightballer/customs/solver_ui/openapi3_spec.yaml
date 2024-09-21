@@ -1,0 +1,159 @@
+openapi: 3.0.3
+info:
+  title: RFQ Protocol API
+  description: A protocol for representing a request for quotation (RFQ) in the quotation negotiation dialogue.
+  version: 0.1.0
+  contact:
+    name: eightballer
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /api/rfq:
+    post:
+      summary: Create a new RFQ
+      description: Create a new request for quotation (RFQ).
+      operationId: createRFQ
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRFQ'
+      responses:
+        '201':
+          description: RFQ successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestForQuote'
+        '400':
+          description: Bad Request
+    get:
+      summary: Get all RFQs
+      description: Get all the requests for quotes
+      responses:
+        '200':
+          description: RFQ successfully created.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RequestForQuote'
+        '400':
+          description: Bad Request
+  /api/rfq/{rfqId}/accept:
+    post:
+      summary: Accept an RFQ
+      description: Accept an RFQ and proceed with the quotation process.
+      operationId: acceptRFQ
+      parameters:
+        - name: rfqId
+          in: path
+          required: true
+          description: The ID of the RFQ to accept.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Accept'
+      responses:
+        '200':
+          description: RFQ accepted successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+        '404':
+          description: RFQ not found
+components:
+  schemas:
+    # Represents a Request for Quote
+    RequestForQuote:
+      type: object
+      properties:
+        amount_in:
+          type: integer
+          description: Amount the buyer is willing to exchange.
+        bid_token_id:
+          type: string
+          description: Token ID the buyer wants to bid.
+        ask_token_id:
+          type: string
+          description: Token ID the buyer wants to receive.
+        buyer_wallet_address:
+          type: string
+          description: Wallet address of the buyer.
+        chain_id:
+          type: string
+          description: Chain ID of the transaction.
+        expiration_time:
+          type: integer
+          description: Expiration time for the RFQ.
+      required:
+        - amount_in
+        - bid_token_id
+        - ask_token_id
+        - buyer_wallet_address
+        - chain_id
+        - expiration_time
+
+    # Represents the schema for creating a new RFQ
+    CreateRFQ:
+      type: object
+      properties:
+        rfq:
+          $ref: '#/components/schemas/RequestForQuote'
+      required:
+        - rfq
+
+    # Represents a Quotation in response to an RFQ
+    Quote:
+      type: object
+      properties:
+        amount_out:
+          type: integer
+          description: Amount the seller is willing to provide.
+        bid_token_id:
+          type: string
+          description: Token ID the seller wants to bid.
+        ask_token_id:
+          type: string
+          description: Token ID the seller wants to receive.
+        seller_wallet_address:
+          type: string
+          description: Wallet address of the seller.
+        chain_id:
+          type: string
+          description: Chain ID of the transaction.
+      required:
+        - amount_out
+        - bid_token_id
+        - ask_token_id
+        - seller_wallet_address
+        - chain_id
+
+    # Represents an RFQ error response
+    RFQError:
+      type: object
+      properties:
+        error_code:
+          type: string
+          enum:
+            - UNSUPPORTED_TOKEN
+            - UNSUPPORTED_CHAIN
+            - NO_QUOTES
+          description: Error code indicating the type of RFQ error.
+
+    # Represents the schema for accepting an RFQ
+    Accept:
+      type: object
+      properties:
+        quote:
+          $ref: '#/components/schemas/Quote'
+      required:
+        - quote

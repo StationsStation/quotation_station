@@ -1,0 +1,71 @@
+name: rfq_protocol
+author: eightballer
+version: 0.1.0
+description: A protocol for representing a request for quotation (RFQ) in the the quotation negotiation dialogue.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+protocol_specification_id: eightballer/rfq_protocol:0.1.0
+speech_acts:
+  create_rfq:
+    rfq: ct:RequestForQuote
+  quotation:
+    rfq: ct:RequestForQuote
+    quote: ct:Quote
+  rfq_error:
+    error_code: ct:RFQError
+  accept:
+    quote: ct:Quote
+  decline:
+    quote: ct:Quote
+  initiate_atomic_swap:
+    quote: ct:Quote
+    seller_address: pt:str
+    swap_id: pt:str
+    secret_hash: pt:str
+    secret: pt:str
+  complete_atomic_swap:
+    swap_id: pt:str
+    secret: pt:str
+  buyer_claim:
+    secret: pt:str
+    chain_id: pt:str
+  seller_claim:
+    secret: pt:str
+    chain_id: pt:str
+---
+ct:RFQError: |
+  enum ErrorCodeEnum {
+      UNSUPPORTED_TOKEN = 0;
+      UNSUPPORTED_CHAIN = 1;
+      NO_QUOTES = 2;
+    }
+  ErrorCodeEnum error_code = 1;
+ct:RequestForQuote: |
+  int32 amount_in = 1;
+  string bid_token_id = 2;
+  string ask_token_id = 3;
+  string buyer_wallet_address = 4;
+  string chain_id = 5;
+  int32 expiration_time = 7;
+ct:Quote: |
+  int32 amount_out = 1;
+  string bid_token_id = 2;
+  string ask_token_id = 3;
+  string seller_wallet_address = 4;
+  string chain_id = 5;
+---
+initiation: [create_rfq]
+reply:
+  create_rfq: [quotation, rfq_error]
+  quotation: [accept, decline]
+  accept: [initiate_atomic_swap]
+  decline: []
+  initiate_atomic_swap: [complete_atomic_swap]
+  complete_atomic_swap: [buyer_claim, seller_claim]
+  buyer_claim: []
+  seller_claim: []
+  rfq_error: [decline]
+termination: [decline, buyer_claim, seller_claim,]
+roles: { buyer, seller}
+end_states: [ decline, buyer_claim, seller_claim]
+keep_terminal_state_dialogues: false

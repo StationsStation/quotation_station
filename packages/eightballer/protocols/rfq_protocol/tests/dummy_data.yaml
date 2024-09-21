@@ -1,0 +1,13 @@
+Quote:
+  amount_out: 0
+  ask_token_id: ask_token_id
+  bid_token_id: bid_token_id
+  chain_id: chain_id
+  seller_wallet_address: seller_wallet_address
+RequestForQuote:
+  amount_in: 0
+  ask_token_id: ask_token_id
+  bid_token_id: bid_token_id
+  buyer_wallet_address: buyer_wallet_address
+  chain_id: chain_id
+  expiration_time: 0

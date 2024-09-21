@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package aea.eightballer.rfq_protocol.v0_1_0;
+
+message RfqProtocolMessage{
+
+  // Custom Types
+  message Quote{
+    int32 amount_out = 1;
+    string bid_token_id = 2;
+    string ask_token_id = 3;
+    string seller_wallet_address = 4;
+    string chain_id = 5;
+  }
+
+  message RFQError{
+    enum ErrorCodeEnum {
+      ERROR_CODE_ENUM_UNSUPPORTED_TOKEN = 0;
+      ERROR_CODE_ENUM_UNSUPPORTED_CHAIN = 1;
+      ERROR_CODE_ENUM_NO_QUOTES = 2;
+    }
+    ErrorCodeEnum error_code = 1;
+  }
+
+  message RequestForQuote{
+    int32 amount_in = 1;
+    string bid_token_id = 2;
+    string ask_token_id = 3;
+    string buyer_wallet_address = 4;
+    string chain_id = 5;
+    int32 expiration_time = 7;
+  }
+
+
+  // Performatives and contents
+  message Create_Rfq_Performative{
+    RequestForQuote rfq = 1;
+  }
+
+  message Quotation_Performative{
+    RequestForQuote rfq = 1;
+    Quote quote = 2;
+  }
+
+  message Rfq_Error_Performative{
+    RFQError error_code = 1;
+  }
+
+  message Accept_Performative{
+    Quote quote = 1;
+  }
+
+  message Decline_Performative{
+    Quote quote = 1;
+  }
+
+  message Initiate_Atomic_Swap_Performative{
+    Quote quote = 1;
+    string seller_address = 2;
+    string swap_id = 3;
+    string secret_hash = 4;
+    string secret = 5;
+  }
+
+  message Complete_Atomic_Swap_Performative{
+    string swap_id = 1;
+    string secret = 2;
+  }
+
+  message Buyer_Claim_Performative{
+    string secret = 1;
+    string chain_id = 2;
+  }
+
+  message Seller_Claim_Performative{
+    string secret = 1;
+    string chain_id = 2;
+  }
+
+
+  oneof performative{
+    Accept_Performative accept = 5;
+    Buyer_Claim_Performative buyer_claim = 6;
+    Complete_Atomic_Swap_Performative complete_atomic_swap = 7;
+    Create_Rfq_Performative create_rfq = 8;
+    Decline_Performative decline = 9;
+    Initiate_Atomic_Swap_Performative initiate_atomic_swap = 10;
+    Quotation_Performative quotation = 11;
+    Rfq_Error_Performative rfq_error = 12;
+    Seller_Claim_Performative seller_claim = 13;
+  }
+}
