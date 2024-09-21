@@ -1,5 +1,6 @@
 {
     "dev": {
+        "protocol/eightballer/rfq_protocol/0.1.0": "bafybeibxdtj6rhsyn5gp2k5xwm54yegmitdckaiep5opbf4pzz5zobfy3y",
         "skill/eightballer/qs_solver_abci/0.1.0": "bafybeigpa7laobdfumvw75bjlzv5xb3o4v6ku3p7fqomwhuxbr7oqhukma",
         "skill/eightballer/qs_executor_abci/0.1.0": "bafybeihcwk5u55dumui4j2rtbtiw66kndkhf76dfcgfxbj6gdkym5nzkwe",
         "skill/eightballer/solver/0.1.0": "bafybeieky7umhgnquqteazikjwnd7wp7ksdcqgiyhrxlcgbsgkjnmkt3au",
