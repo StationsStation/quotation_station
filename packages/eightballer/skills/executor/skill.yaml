@@ -11,7 +11,7 @@ fingerprint:
   composition.py: bafybeigeayd22oluakbdojia3pxztyykfc2kjlraupgsngwmnxlipk3g6i
   dialogues.py: bafybeicoefeaqrwrvxrzjtkfg7uqhk4vjiqfowewxjp2fao73eni2konae
   handlers.py: bafybeihkrmyvxbdnegvrpxbuarbs2x6lc6g33epnopwtxer7lpzcotd3mq
-  models.py: bafybeictizbyrlqpq4b3brizuz3tobwevhhdl2tj4oayrludmbpb6lm5xq
+  models.py: bafybeig4i7k65p4evab3hcm3mtofshjaf3qmpm25nt7nhblrrakjd5djhi
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -21,7 +21,7 @@ skills:
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
 - valory/transaction_settlement_abci:0.1.0:bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm
-- eightballer/qs_executor_abci:0.1.0:bafybeifcksttx3aq7c7ltvi5sjbw5da5moigx6n7saiunuksev3tqdyhee
+- eightballer/qs_executor_abci:0.1.0:bafybeihcwk5u55dumui4j2rtbtiw66kndkhf76dfcgfxbj6gdkym5nzkwe
 behaviours:
   main:
     args: {}
@@ -128,6 +128,17 @@ models:
       use_termination: false
       validate_timeout: 1205
     class_name: Params
+  randomness_api:
+    args:
+      api_id: cloudflare
+      headers: {}
+      method: GET
+      parameters: {}
+      response_key: null
+      response_type: dict
+      retries: 5
+      url: https://drand.cloudflare.com/public/latest
+    class_name: RandomnessApi
   requests:
     args: {}
     class_name: Requests

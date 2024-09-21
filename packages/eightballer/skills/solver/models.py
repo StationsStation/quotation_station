@@ -19,7 +19,9 @@
 
 """This module contains the shared state for the abci skill of CompositeAbciApp."""
 
-from packages.valory.skills.abstract_round_abci.models import BaseParams
+from enum import StrEnum
+
+from packages.valory.skills.abstract_round_abci.models import ApiSpecs, BaseParams
 from packages.valory.skills.abstract_round_abci.models import (
     BenchmarkTool as BaseBenchmarkTool,
 )
@@ -30,12 +32,30 @@ from packages.valory.skills.abstract_round_abci.models import (
 from packages.eightballer.skills.solver.composition import CompositeAbciApp
 
 
+class ExecutionMode(StrEnum):
+    EOA = "EOA"
+    MULTISIG = "MULTI"
+
+
 class SharedState(BaseSharedState):
     """Keep the current shared state of the composite skill."""
 
     abci_app_cls = CompositeAbciApp
 
 
-Params = BaseParams
+class RandomnessApi(ApiSpecs):
+    """A model for randomness api specifications."""
+
+
+class Params(BaseParams):
+
+    def __init__(self, *args, **kwargs):
+        executor_setup = kwargs["executor_setup"]
+        self.executor_mode: ExecutionMode = ExecutionMode[executor_setup["execution_mode"]]
+        self.quotable_margin_percent: float = executor_setup["quotable_margin_percent"]
+
+        super().__init__(*args, **kwargs)
+
+
 Requests = BaseRequests
 BenchmarkTool = BaseBenchmarkTool

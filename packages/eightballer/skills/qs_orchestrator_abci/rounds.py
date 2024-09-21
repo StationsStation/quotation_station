@@ -25,7 +25,7 @@ from typing import Dict, FrozenSet, List, Optional, Set, Tuple
 from packages.valory.skills.abstract_round_abci.base import (
     AbciApp,
     AbciAppTransitionFunction,
-    AbstractRound,
+    CollectSameUntilThresholdRound,
     AppState,
     BaseSynchronizedData,
     DegenerateRound,
@@ -54,18 +54,12 @@ class SynchronizedData(BaseSynchronizedData):
     """
 
 
-class CreateContainersRound(AbstractRound):
+class CreateContainersRound(CollectSameUntilThresholdRound):
     """CreateContainersRound"""
 
     payload_class = CreateContainersPayload
     payload_attribute = ""  # TODO: update
     synchronized_data_class = SynchronizedData
-
-    # TODO: replace AbstractRound with one of CollectDifferentUntilAllRound,
-    # CollectSameUntilAllRound, CollectSameUntilThresholdRound,
-    # CollectDifferentUntilThresholdRound, OnlyKeeperSendsRound, VotingRound,
-    # from packages/valory/skills/abstract_round_abci/base.py
-    # or implement the methods
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
@@ -80,18 +74,12 @@ class CreateContainersRound(AbstractRound):
         raise NotImplementedError
 
 
-class HealthCheckRound(AbstractRound):
+class HealthCheckRound(CollectSameUntilThresholdRound):
     """HealthCheckRound"""
 
     payload_class = HealthCheckPayload
     payload_attribute = ""  # TODO: update
     synchronized_data_class = SynchronizedData
-
-    # TODO: replace AbstractRound with one of CollectDifferentUntilAllRound,
-    # CollectSameUntilAllRound, CollectSameUntilThresholdRound,
-    # CollectDifferentUntilThresholdRound, OnlyKeeperSendsRound, VotingRound,
-    # from packages/valory/skills/abstract_round_abci/base.py
-    # or implement the methods
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
@@ -132,5 +120,5 @@ class QSOrchestratorAbciApp(AbciApp[Event]):
         HealthCheckRound: {"participants"},
     }
     db_post_conditions: Dict[AppState, Set[str]] = {
-        SuccessfulDeploymentRound: [],
+        SuccessfulDeploymentRound: set(),
     }
