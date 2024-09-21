@@ -153,7 +153,7 @@ This system is designed to be fully decentralised and trustless with agents ensu
 If you're looking to contribute or develop with `quotation_station`, get the source code and set up the environment:
 
 ```shell
-git clone https://github.com/eightballer/quotation_station --recurse-submodules
+git clone https://github.com/StationsStation/quotation_station --recurse-submodules
 cd quotation_station
 make install
 ```
