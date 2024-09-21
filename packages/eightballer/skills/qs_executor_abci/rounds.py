@@ -308,13 +308,13 @@ class QSExecutorAbciApp(AbciApp[Event]):
     event_to_timeout: EventToTimeout = {}
     cross_period_persisted_keys: FrozenSet[str] = frozenset()
     db_pre_conditions: Dict[AppState, Set[str]] = {
-        PostTransactionRound: [],
-    	CollectExchangeDataRound: [],
+        PostTransactionRound: {"participants"},
+		CollectExchangeDataRound: {"participants"},
     }
     db_post_conditions: Dict[AppState, Set[str]] = {
-        SuccessfulExecutionRound: [],
-    	UnSuccessfulExecutionRound: [],
-    	FinalisedRefundTransactionsRound: [],
-    	FinalisedClaimTransactionsRound: [],
-    	FinalisedSupplyTransactionsRound: [],
+		SuccessfulExecutionRound: {"most_voted_tx_hash"},
+		UnSuccessfulExecutionRound: set(),
+		FinalisedRefundTransactionsRound: {"most_voted_tx_hash"},
+		FinalisedClaimTransactionsRound: {"most_voted_tx_hash"},
+		FinalisedSupplyTransactionsRound: {"most_voted_tx_hash"},
     }
