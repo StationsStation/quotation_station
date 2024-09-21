@@ -8,8 +8,8 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeifen2qgfpo337cxiwbj66p3o2j7rf2k75cgpwumhvtk72jbu3umyu
   behaviours.py: bafybeifdf7mo5vcuqihekqyxxvbkok3urmwabbcdth5cnvcq66z4ldjklm
-  buyer_fsm.yaml: bafybeiatdlxqln32ecadlt6sh76oz5637aghapkbcx7ptzanz7pgg25q5e
   dialogues.py: bafybeicx2ropyidjhsqfp7tbmx42s4nqjx2hlv7t4x34eetlsxyqiaafz4
+  fsm_specification.yaml: bafybeiatdlxqln32ecadlt6sh76oz5637aghapkbcx7ptzanz7pgg25q5e
   handlers.py: bafybeiawpagijm2yelzg7nrpekpzyuasaywavzln7jvfai6ko7n2skzq64
   models.py: bafybeiaeszppzb7vw6hvxhgr6smczr3mc4nwiqsgps7zbyhce2mrvpakwe
   payloads.py: bafybeib23tapxq44yicibnaurxd7ywhsctutj3dz5wxc3z4cdv3skkxyou
@@ -140,5 +140,5 @@ models:
     args: {}
     class_name: TendermintDialogues
 dependencies: {}
-is_abstract: false
+is_abstract: true
 customs: []
