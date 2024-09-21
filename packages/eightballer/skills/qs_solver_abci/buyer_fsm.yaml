@@ -1,0 +1,59 @@
+alphabet_in:
+- ACCEPT_QUOTES
+- POST_CLAIM
+- POST_NEW_SWAP
+- NO_QUOTES
+- FINALISED
+- TRIGGERED
+- NOT_TRIGGERED
+- DONE
+- QUOTES
+- COUNTER_PARTY_TIMEOUT
+- POST_REFUND
+default_start_state: PostTransactionRound
+final_states:
+- SuccessfulExecutionRound
+- FinalisedClaimTransactionsRound
+- FinalisedRefundTransactionsRound
+- UnSuccessfulExecutionRound
+- FinalisedSwapTransactionsRound
+- NoOpportunityRound
+label: QSSolverAbciApp
+start_states:
+- PostTransactionRound
+- AwaitingOpportunityRound
+states:
+- PrepareRefundTransactionsRound
+- PostTransactionRound
+- SubmitRFQRound
+- AwaitSupplierTransactionsRound
+- AwaitQuotesRound
+- SuccessfulExecutionRound
+- FinalisedClaimTransactionsRound
+- FinalisedRefundTransactionsRound
+- UnSuccessfulExecutionRound
+- AwaitingOpportunityRound
+- PrepareClaimTransactionsRound
+- FinalisedSwapTransactionsRound
+- PrepareNewSwapTransactionsRound
+- NoOpportunityRound
+- SelectQuotesRound
+transition_func:
+  (AwaitQuotesRound, NO_QUOTES): NoOpportunityRound
+  (AwaitQuotesRound, QUOTES): SelectQuotesRound
+  (AwaitSupplierTransactionsRound, COUNTER_PARTY_TIMEOUT): PrepareRefundTransactionsRound
+  (AwaitSupplierTransactionsRound, DONE): PrepareClaimTransactionsRound
+  (AwaitingOpportunityRound, NOT_TRIGGERED): NoOpportunityRound
+  (AwaitingOpportunityRound, TRIGGERED): SubmitRFQRound
+  (PostTransactionRound, POST_CLAIM): SuccessfulExecutionRound
+  (PostTransactionRound, POST_NEW_SWAP): AwaitSupplierTransactionsRound
+  (PostTransactionRound, POST_REFUND): UnSuccessfulExecutionRound
+  (PrepareClaimTransactionsRound, DONE): FinalisedClaimTransactionsRound
+  (PrepareClaimTransactionsRound, FINALISED): SuccessfulExecutionRound
+  (PrepareNewSwapTransactionsRound, DONE): FinalisedSwapTransactionsRound
+  (PrepareNewSwapTransactionsRound, FINALISED): AwaitSupplierTransactionsRound
+  (PrepareRefundTransactionsRound, DONE): FinalisedRefundTransactionsRound
+  (PrepareRefundTransactionsRound, FINALISED): UnSuccessfulExecutionRound
+  (SelectQuotesRound, ACCEPT_QUOTES): PrepareNewSwapTransactionsRound
+  (SubmitRFQRound, DONE): AwaitQuotesRound
+
