@@ -3,6 +3,7 @@
         "skill/eightballer/qs_solver_abci/0.1.0": "bafybeibbvkmv6iszkl3qgqljvuvufu3pbyo5xcwgownaftnhzffmz7kkfa",
         "skill/eightballer/qs_executor_abci/0.1.0": "bafybeiciy4up7fmowdgamcpmbtb53iig6o2irwvj5npmvzvljvaidcivdy",
         "skill/eightballer/solver/0.1.0": "bafybeifhbyofoqtrjx26ag53euu6zel3songxrunwkpuqxokmvqmv5vrgu",
+        "skill/eightballer/orchestrator_abci/0.1.0": "bafybeihkhfctivhgvket2vvbsynxvzowdg24ih7ei3wnoqh2kz5subyzze",
         "agent/eightballer/solver/0.1.0": "bafybeifkkfg4i6ndeb6bfizls4f2lmyzrjnr27nh2brrgk3xnjwxea7byq",
         "agent/eightballer/executor/0.1.0": "bafybeia32aup3ftfgszgkxaxllfagqkw6aq6atyqquvujzvin5sfbw4ezi"
     },
