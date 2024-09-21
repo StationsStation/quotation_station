@@ -10,6 +10,7 @@
         "skill/eightballer/orchestrator_abci/0.1.0": "bafybeifhfqurotukxdrl4paswhewm35epmfkpjzshuakmjqr4cvcgfdbtq",
         "skill/eightballer/orchestrator/0.1.0": "bafybeievnq2lk6wy5rooirw5s7lhmd35lyjgxgejledsmgfp6s2cnt4ora",
         "skill/eightballer/qs_orchestrator_abci/0.1.0": "bafybeihyxy6yna2vfkzbyjrcgvamwb4p5do32wfdxzglwcopayya6msrwq",
+        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m",
         "agent/eightballer/solver/0.1.0": "bafybeichwcqw7nkxsapozrv2fvnmvq5dmmsi545y22wuu7fgnfov53db64",
         "agent/eightballer/executor/0.1.0": "bafybeicbp5ghivmbeps5w552rnbvbjibght2rhgqxfp5u2mxqqgkfmml3y",
         "agent/eightballer/orchestrator/0.1.0": "bafybeifuw2h5wouzzyv2grjpubm2v7cp6p2bqfklinnatyzr54adh3sshy"
@@ -44,7 +45,6 @@
         "skill/valory/abstract_round_abci/0.1.0": "bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim",
         "skill/valory/reset_pause_abci/0.1.0": "bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im",
         "skill/valory/registration_abci/0.1.0": "bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta",
-        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m",
         "skill/eightballer/trader_abci/0.1.0": "bafybeif6tvb2cskwen66w43fsnfres4ct3uwz4jt4tm5unty42kmo3t4qy",
         "skill/valory/transaction_settlement_abci/0.1.0": "bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm"
     }
