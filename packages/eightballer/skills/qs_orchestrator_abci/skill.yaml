@@ -7,13 +7,13 @@ license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeie2eua5twi3crfg7cqxkv62glygjnyaxlncasxsqqep3xibhsspiq
-  behaviours.py: bafybeibu73du4bptw45fsf7ddpel7ddkguobzbbfh4uxqzvpu2ogn7n6he
-  dialogues.py: bafybeihyy54kdw66khuvielotnhskgfepllwbwh4df4eqonprywbnivfku
+  behaviours.py: bafybeiefectfs374hzmnvd6rcl32tnpef5ffb3cews4ibbichko3j4wnoq
+  dialogues.py: bafybeibkri4dduwxslthddkl4uvogqexiea4nmkc7fg4r7vpt3rserlybq
   fsm_specification.yaml: bafybeihdeh4s7ohlfhwdo3xxkod2xvkkr3lddpky5cg7btknjaqgyx6ra4
-  handlers.py: bafybeicwypeetjetfnkdtz5k6rq7jifa65zkv5yu5rs4mrsigqofiuizty
+  handlers.py: bafybeifgnlyi6mrztdfxshigqc7coawwycsmn2cdx4vzdag5oaf66r4c6i
   models.py: bafybeigpcx34wrocfo7yeizjoqmj4abvypcytmfiv5h3rzrkac4cwe5wsu
-  payloads.py: bafybeic4xjaksu3bxuiduqhispjiculoyfrgw2bf7c4tsmcyuksseehr2e
-  rounds.py: bafybeidag6ebupm2ir36vsy4itsbcwndg7aykhwbv7asfsr4nqvpilfjmi
+  payloads.py: bafybeihbpqx6yv7zh4bipx5zgaxbaqjvrlrdt4somujwn4zywsqopc33ji
+  rounds.py: bafybeifjmyc6gpl6y2aekoml3tkie56xqhgqm4vk6q2gay5grpgizuirge
   tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
   tests/test_behaviours.py: bafybeignr3x3coilwgbk2i4xbo3al7juu3pqwmzumprddv6owmzy2rdvzi
   tests/test_dialogues.py: bafybeiehikfibq3gbxkkwfbbzlqykr7wvlvcrar3t6tnddwzexz6hgg3h4
@@ -25,7 +25,7 @@ fingerprint_ignore_patterns: []
 connections: []
 contracts: []
 protocols:
-- eightballer/docker_command:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
+- eightballer/docker_command:0.1.0:bafybeig7khuzo46vhosnltntzsokxdkhtfgb4usbrluu5bdssw6nylca6m
 skills:
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 behaviours:

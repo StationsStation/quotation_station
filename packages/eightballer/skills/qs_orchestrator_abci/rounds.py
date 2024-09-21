@@ -53,8 +53,9 @@ class SynchronizedData(BaseSynchronizedData):
     This data is replicated by the tendermint application.
     """
 
-    def container_health(self):
-        return self.db.get("container_health", {})
+    @property
+    def health_containers(self):
+        return self.db.get("health_containers", {})
 
 
 class CreateContainersRound(CollectSameUntilThresholdRound):
@@ -80,8 +81,8 @@ class HealthCheckRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        health = self.synchronized_data.containers_health
-        containers_healthy = health and all(self.health.values())
+        health = self.synchronized_data.health_containers
+        containers_healthy = health and all(health.values())
 
         if containers_healthy:
             return self.synchronized_data, Event.HEALTHY

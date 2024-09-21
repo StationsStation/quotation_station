@@ -9,8 +9,8 @@ fingerprint:
   __init__.py: bafybeigmikkzzk3omt2fcnhzfvidlyu2ls7lsfhaizfqgbgbndcyk7n5su
   behaviours.py: bafybeibq64xnw64224alhnjcwy5nuomdvkos3frstlenyw2jyscxwwb6wy
   composition.py: bafybeibpjwfiyamm26rhdhjpp5ksczf4vu3aoykd5yfrud5hirwjmbgvii
-  dialogues.py: bafybeicoefeaqrwrvxrzjtkfg7uqhk4vjiqfowewxjp2fao73eni2konae
-  handlers.py: bafybeihcyfl5h27wrc6vkezugbfo2nxcuyzy47orm2i5orscprx4gkiwxm
+  dialogues.py: bafybeictkvuxfk3bga4wxxciqxxe7vicxgszpsxgixqbgr2b6htexgjelu
+  handlers.py: bafybeig6vy7tdjxm2w6nhn2xtukfznnqu3onzttbfmofibdf4qm3ctipzy
   models.py: bafybeib6sdadjzrzs6z2tjgvgumwhhlddnr4zu5eapu7i3xhqwcd6rmr2i
 fingerprint_ignore_patterns: []
 connections: []
@@ -20,7 +20,7 @@ skills:
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
-- eightballer/qs_orchestrator_abci:0.1.0:bafybeidrh7xl4npgabgthbirr4orswput7nsjfxj6sgeiejfpwyiw3iuqe
+- eightballer/qs_orchestrator_abci:0.1.0:bafybeihyxy6yna2vfkzbyjrcgvamwb4p5do32wfdxzglwcopayya6msrwq
 behaviours:
   main:
     args: {}
