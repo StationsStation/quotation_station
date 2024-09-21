@@ -2,7 +2,8 @@ agent_name: orchestrator
 author: eightballer
 version: 0.1.0
 license: Apache-2.0
-description: The orchestrator agent.
+description: The orchestrator agent is responsible for spinning up the other agents
+  and monitoring their health to ensure they are running correctly.
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint: {}
 fingerprint_ignore_patterns: []
