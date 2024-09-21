@@ -11,9 +11,9 @@ fingerprint:
   dialogues.py: bafybeicx2ropyidjhsqfp7tbmx42s4nqjx2hlv7t4x34eetlsxyqiaafz4
   fsm_specification.yaml: bafybeiatdlxqln32ecadlt6sh76oz5637aghapkbcx7ptzanz7pgg25q5e
   handlers.py: bafybeiawpagijm2yelzg7nrpekpzyuasaywavzln7jvfai6ko7n2skzq64
-  models.py: bafybeia7oy5f3k6goa7ob25l5j2b76r2ituaslaqkc2khmrl7f4upqla5y
+  models.py: bafybeid6gkimkb2wivcp4s45aalxh3emycnpvqzksr6bpw3orlfgz3gccu
   payloads.py: bafybeihlm7jijyft42dvcj6zn4cdgcqk2jjbn6iayhkindqzxehqf76bjm
-  rounds.py: bafybeigdfj4b6u2xa2wzfhkfunl7maf52cbl5jfkbrksgegf7jcpakt7yy
+  rounds.py: bafybeid5uzraj5qg3tjt6bfiixlqmbeq7au7nwlpd3k2tdsxhzpinu7vni
   tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
   tests/test_behaviours.py: bafybeieegyuuvrhlj3kes3h5vjvkreya7djbaj3qgzqed3efqte6al7qge
   tests/test_dialogues.py: bafybeidhz6bd2ofqrrtn7xbaimwx63athfs75xuzah6utb47a2lw7db26q
@@ -78,7 +78,7 @@ models:
       cleanup_history_depth: 1
       cleanup_history_depth_current: null
       drand_public_key: 868f005eb8e6e4ca0a47c8a77ceaa5309a47978a7c71bc5cce96366b5d7a569937c529eeda66c7293784a9402801af31
-      executor_setup: 
+      executor_setup:
         execution_mode: EOA
         quotable_margin_percent: 1.0
       finalize_timeout: 60.0
