@@ -64,7 +64,7 @@ class TestDAOs(unittest.TestCase):
     def test_requestforquotedao(self):
         """Test CRUD operations for RequestforquoteDAO."""
         with self._data_file_context():
-            dummy_data = {"amount_in": 44, "ask_token_id": "dummy_7352", "bid_token_id": "dummy_1102", "buyer_wallet_address": "dummy_2108", "chain_id": "dummy_2844", "expiration_time": 40}
+            dummy_data = {"amount_in": 14, "ask_token_id": "dummy_1926", "bid_token_id": "dummy_8620", "buyer_wallet_address": "dummy_5215", "chain_id": "dummy_5443", "expiration_time": 78}
 
             # Test insert
             try:
@@ -136,7 +136,7 @@ class TestDAOs(unittest.TestCase):
     def test_createrfqdao(self):
         """Test CRUD operations for CreaterfqDAO."""
         with self._data_file_context():
-            dummy_data = {"rfq": "dummy_9300"}
+            dummy_data = {"rfq": "dummy_1885"}
 
             # Test insert
             try:
@@ -208,7 +208,7 @@ class TestDAOs(unittest.TestCase):
     def test_quotedao(self):
         """Test CRUD operations for QuoteDAO."""
         with self._data_file_context():
-            dummy_data = {"amount_out": 64, "ask_token_id": "dummy_2583", "bid_token_id": "dummy_7361", "chain_id": "dummy_5247", "seller_wallet_address": "dummy_5471"}
+            dummy_data = {"amount_out": 83, "ask_token_id": "dummy_1819", "bid_token_id": "dummy_6389", "chain_id": "dummy_7128", "seller_wallet_address": "dummy_7569"}
 
             # Test insert
             try:
@@ -280,7 +280,7 @@ class TestDAOs(unittest.TestCase):
     def test_rfqerrordao(self):
         """Test CRUD operations for RfqerrorDAO."""
         with self._data_file_context():
-            dummy_data = {"error_code": "dummy_8323"}
+            dummy_data = {"error_code": "dummy_1416"}
 
             # Test insert
             try:
@@ -352,7 +352,7 @@ class TestDAOs(unittest.TestCase):
     def test_acceptdao(self):
         """Test CRUD operations for AcceptDAO."""
         with self._data_file_context():
-            dummy_data = {"quote": "dummy_5369"}
+            dummy_data = {"quote": "dummy_2221"}
 
             # Test insert
             try:

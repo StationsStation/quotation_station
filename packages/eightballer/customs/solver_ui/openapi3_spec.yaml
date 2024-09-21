@@ -9,7 +9,7 @@ info:
     name: Apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  /rfq:
+  /api/rfq:
     post:
       summary: Create a new RFQ
       description: Create a new request for quotation (RFQ).
@@ -29,7 +29,21 @@ paths:
                 $ref: '#/components/schemas/RequestForQuote'
         '400':
           description: Bad Request
-  /rfq/{rfqId}/accept:
+    get:
+      summary: Get all RFQs
+      description: Get all the requests for quotes
+      responses:
+        '200':
+          description: RFQ successfully created.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RequestForQuote'
+        '400':
+          description: Bad Request
+  /api/rfq/{rfqId}/accept:
     post:
       summary: Accept an RFQ
       description: Accept an RFQ and proceed with the quotation process.
