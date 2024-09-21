@@ -19,7 +19,7 @@
 
 """This module contains the shared state for the abci skill of CompositeAbciApp."""
 
-from packages.valory.skills.abstract_round_abci.models import ApiSpecs, BaseParams
+from packages.valory.skills.abstract_round_abci.models import ApiSpecs
 from packages.valory.skills.abstract_round_abci.models import (
     BenchmarkTool as BaseBenchmarkTool,
 )
@@ -27,6 +27,7 @@ from packages.valory.skills.abstract_round_abci.models import Requests as BaseRe
 from packages.valory.skills.abstract_round_abci.models import (
     SharedState as BaseSharedState,
 )
+from packages.eightballer.skills.qs_executor_abci.models import Params as BaseParams
 from packages.eightballer.skills.executor.composition import CompositeAbciApp
 
 
