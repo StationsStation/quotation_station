@@ -105,7 +105,7 @@ class AwaitingOpportunityRound(CollectSameUntilThresholdRound):
     """AwaitingOpportunityRound"""
 
     payload_class = AwaitingOpportunityPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -121,7 +121,7 @@ class SubmitRFQRound(CollectSameUntilThresholdRound):
     """SubmitRFQRound"""
 
     payload_class = SubmitRFQPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -134,7 +134,7 @@ class AwaitQuotesRound(CollectSameUntilThresholdRound):
     """AwaitQuotesRound"""
 
     payload_class = AwaitQuotesPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -150,7 +150,7 @@ class SelectQuotesRound(CollectSameUntilThresholdRound):
     """SelectQuotesRound"""
 
     payload_class = SelectQuotesPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -163,7 +163,7 @@ class PrepareNewSwapTransactionsRound(CollectSameUntilThresholdRound):
     """PrepareNewSwapTransactionsRound"""
 
     payload_class = PrepareNewSwapTransactionsPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -177,7 +177,7 @@ class AwaitSupplierTransactionsRound(CollectSameUntilThresholdRound):
     """AwaitSupplierTransactionsRound"""
 
     payload_class = AwaitSupplierTransactionsPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -193,7 +193,7 @@ class PrepareClaimTransactionsRound(CollectSameUntilThresholdRound):
     """PrepareClaimTransactionsRound"""
 
     payload_class = PrepareClaimTransactionsPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -211,7 +211,7 @@ class PrepareRefundTransactionsRound(CollectSameUntilThresholdRound):
     """PrepareRefundTransactionsRound"""
 
     payload_class = PrepareRefundTransactionsPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
@@ -228,7 +228,7 @@ class PostTransactionRound(CollectSameUntilThresholdRound):
     """PostTransactionRound"""
 
     payload_class = PostTransactionPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:

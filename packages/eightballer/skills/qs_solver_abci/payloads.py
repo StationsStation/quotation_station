@@ -19,6 +19,7 @@
 
 """This module contains the transaction payloads of the QSSolverAbciApp."""
 
+from typing import Any
 from dataclasses import dataclass
 
 from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
@@ -28,61 +29,60 @@ from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
 class AwaitQuotesPayload(BaseTxPayload):
     """Represent a transaction payload for the AwaitQuotesRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class AwaitSupplierTransactionsPayload(BaseTxPayload):
     """Represent a transaction payload for the AwaitSupplierTransactionsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class AwaitingOpportunityPayload(BaseTxPayload):
     """Represent a transaction payload for the AwaitingOpportunityRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PostTransactionPayload(BaseTxPayload):
     """Represent a transaction payload for the PostTransactionRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PrepareClaimTransactionsPayload(BaseTxPayload):
     """Represent a transaction payload for the PrepareClaimTransactionsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PrepareNewSwapTransactionsPayload(BaseTxPayload):
     """Represent a transaction payload for the PrepareNewSwapTransactionsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class PrepareRefundTransactionsPayload(BaseTxPayload):
     """Represent a transaction payload for the PrepareRefundTransactionsRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class SelectQuotesPayload(BaseTxPayload):
     """Represent a transaction payload for the SelectQuotesRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class SubmitRFQPayload(BaseTxPayload):
     """Represent a transaction payload for the SubmitRFQRound."""
 
-    # TODO: define your attributes
-
+    content: Any
