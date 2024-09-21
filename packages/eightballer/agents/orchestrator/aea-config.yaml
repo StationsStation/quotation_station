@@ -38,7 +38,7 @@ protocols:
 skills:
 - eightballer/orchestrator:0.1.0:bafybeievnq2lk6wy5rooirw5s7lhmd35lyjgxgejledsmgfp6s2cnt4ora
 - eightballer/qs_orchestrator_abci:0.1.0:bafybeihyxy6yna2vfkzbyjrcgvamwb4p5do32wfdxzglwcopayya6msrwq
-- eightballer/ui_loader_abci:0.1.0:bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m
+- eightballer/ui_loader_abci:0.1.0:bafybeiao2sputqzhgujj5f7w2xwkhvqn2p3lqs6gkwcpqfm5yfonez2n6y
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
