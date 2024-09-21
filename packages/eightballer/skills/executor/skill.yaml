@@ -8,10 +8,10 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeia3jby6oncwy6ospgxnhentb5hcd75i3eba4zuetv6zjsocpsbyvi
   behaviours.py: bafybeicpr6c7l2smovnroomtm3iypkyqjduyewzm2bejxraqizkp7hcw2y
-  composition.py: bafybeigeayd22oluakbdojia3pxztyykfc2kjlraupgsngwmnxlipk3g6i
+  composition.py: bafybeictxtmo7wps33iy6vdhtwtxeputnz4zvpg6j4tbixo4qvqgrs2ici
   dialogues.py: bafybeicoefeaqrwrvxrzjtkfg7uqhk4vjiqfowewxjp2fao73eni2konae
   handlers.py: bafybeihkrmyvxbdnegvrpxbuarbs2x6lc6g33epnopwtxer7lpzcotd3mq
-  models.py: bafybeig4i7k65p4evab3hcm3mtofshjaf3qmpm25nt7nhblrrakjd5djhi
+  models.py: bafybeics2tyfcmew2px7dotbfu4xsc4ynf2p7hqeaouzal2beec3z5zoyi
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -21,7 +21,7 @@ skills:
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
 - valory/transaction_settlement_abci:0.1.0:bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm
-- eightballer/qs_executor_abci:0.1.0:bafybeihpr66gsnxhtwzx4jlj4nybn4b3pr24ujvzgaurm4kdqo5426vozm
+- eightballer/qs_executor_abci:0.1.0:bafybeibjiwpwmt2i4vyopl7a7o47cd73zdzmjyjurnf4q3wlsinp6d3rxa
 behaviours:
   main:
     args: {}
