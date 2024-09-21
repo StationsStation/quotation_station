@@ -40,7 +40,9 @@ from packages.valory.skills.abstract_round_abci.handlers import (
 from packages.valory.skills.abstract_round_abci.handlers import (
     TendermintHandler as BaseTendermintHandler,
 )
-
+from packages.eightballer.skills.qs_orchestrator_abci.handlers import (
+    DockerEngineHandler as BaseDockerEngineHandler,
+)
 
 ABCIHandler = BaseABCIRoundHandler
 HttpHandler = BaseHttpHandler
@@ -49,3 +51,4 @@ LedgerApiHandler = BaseLedgerApiHandler
 ContractApiHandler = BaseContractApiHandler
 TendermintHandler = BaseTendermintHandler
 IpfsHandler = BaseIpfsHandler
+DockerEngineHandler = BaseDockerEngineHandler

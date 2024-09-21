@@ -53,45 +53,41 @@ class SynchronizedData(BaseSynchronizedData):
     This data is replicated by the tendermint application.
     """
 
+    @property
+    def health_containers(self):
+        return self.db.get("health_containers", {})
+
 
 class CreateContainersRound(CollectSameUntilThresholdRound):
     """CreateContainersRound"""
 
     payload_class = CreateContainersPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
-        raise NotImplementedError
 
-    def check_payload(self, payload: CreateContainersPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
-
-    def process_payload(self, payload: CreateContainersPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
+        return self.synchronized_data, Event.DONE
 
 
 class HealthCheckRound(CollectSameUntilThresholdRound):
     """HealthCheckRound"""
 
     payload_class = HealthCheckPayload
-    payload_attribute = ""  # TODO: update
+    payload_attribute = "content"
     synchronized_data_class = SynchronizedData
 
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
-        raise NotImplementedError
 
-    def check_payload(self, payload: HealthCheckPayload) -> None:
-        """Check payload."""
-        raise NotImplementedError
+        health = self.synchronized_data.health_containers
+        containers_healthy = health and all(health.values())
 
-    def process_payload(self, payload: HealthCheckPayload) -> None:
-        """Process payload."""
-        raise NotImplementedError
+        if containers_healthy:
+            return self.synchronized_data, Event.HEALTHY
+
+        return self.synchronized_data, Event.UNHEALTHY
 
 
 class SuccessfulDeploymentRound(DegenerateRound):

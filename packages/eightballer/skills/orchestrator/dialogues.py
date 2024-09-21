@@ -61,6 +61,12 @@ from packages.valory.skills.abstract_round_abci.dialogues import (
 from packages.valory.skills.abstract_round_abci.dialogues import (
     TendermintDialogues as BaseTendermintDialogues,
 )
+from packages.eightballer.skills.qs_orchestrator_abci.dialogues import (
+    DockerCommandDialogue as BaseDockerCommandDialogue
+)
+from packages.eightballer.skills.qs_orchestrator_abci.dialogues import (
+    DockerCommandDialogues as BaseDockerCommandDialogues
+)
 
 
 AbciDialogue = BaseAbciDialogue
@@ -89,3 +95,7 @@ TendermintDialogues = BaseTendermintDialogues
 
 IpfsDialogue = BaseIpfsDialogue
 IpfsDialogues = BaseIpfsDialogues
+
+
+DockerCommandDialogue = BaseDockerCommandDialogue
+DockerCommandDialogues = BaseDockerCommandDialogues

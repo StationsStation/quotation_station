@@ -20,6 +20,9 @@
 """This module contains the handlers for the skill of SQOrchestratorAbciApp."""
 
 from packages.valory.skills.abstract_round_abci.handlers import (
+    AbstractResponseHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
     ABCIRoundHandler as BaseABCIRoundHandler,
 )
 from packages.valory.skills.abstract_round_abci.handlers import (
@@ -40,6 +43,24 @@ from packages.valory.skills.abstract_round_abci.handlers import (
 from packages.valory.skills.abstract_round_abci.handlers import (
     TendermintHandler as BaseTendermintHandler,
 )
+from packages.eightballer.protocols.docker_command import DockerCommandMessage
+
+
+class DockerEngineHandler(AbstractResponseHandler):
+    """Implement the docker engine handler."""
+
+    SUPPORTED_PROTOCOL = DockerCommandMessage.protocol_id
+    allowed_response_performatives = frozenset(
+        {
+            DockerCommandMessage.Performative.BUILD_RESPONSE,
+            DockerCommandMessage.Performative.RUN_RESPONSE,
+            DockerCommandMessage.Performative.PS_ALL_RESPONSE,
+            DockerCommandMessage.Performative.PS_CONTAINER_RESPONSE,
+            DockerCommandMessage.Performative.LOGS_RESPONSE,
+            DockerCommandMessage.Performative.KILL_RESPONSE,
+            DockerCommandMessage.Performative.ERROR,
+        }
+    )
 
 
 ABCIHandler = BaseABCIRoundHandler
