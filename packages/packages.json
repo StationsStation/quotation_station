@@ -1,11 +1,15 @@
 {
     "dev": {
-        "skill/eightballer/qs_solver_abci/0.1.0": "bafybeibbvkmv6iszkl3qgqljvuvufu3pbyo5xcwgownaftnhzffmz7kkfa",
-        "skill/eightballer/qs_executor_abci/0.1.0": "bafybeiciy4up7fmowdgamcpmbtb53iig6o2irwvj5npmvzvljvaidcivdy",
-        "skill/eightballer/solver/0.1.0": "bafybeifhbyofoqtrjx26ag53euu6zel3songxrunwkpuqxokmvqmv5vrgu",
-        "skill/eightballer/orchestrator_abci/0.1.0": "bafybeihkhfctivhgvket2vvbsynxvzowdg24ih7ei3wnoqh2kz5subyzze",
-        "agent/eightballer/solver/0.1.0": "bafybeifkkfg4i6ndeb6bfizls4f2lmyzrjnr27nh2brrgk3xnjwxea7byq",
-        "agent/eightballer/executor/0.1.0": "bafybeia32aup3ftfgszgkxaxllfagqkw6aq6atyqquvujzvin5sfbw4ezi"
+        "skill/eightballer/qs_solver_abci/0.1.0": "bafybeif4il2z2t5ru7h6mu6gd4lughhercgkkmb3lox4urnytldtoxp3xm",
+        "skill/eightballer/qs_executor_abci/0.1.0": "bafybeifcksttx3aq7c7ltvi5sjbw5da5moigx6n7saiunuksev3tqdyhee",
+        "skill/eightballer/solver/0.1.0": "bafybeibmx5rx56lux3n4a34cucrbql46soj5hfun36do3kewtzdv7efjl4",
+        "skill/eightballer/executor/0.1.0": "bafybeidskcvders57d4k2r563wmxzawiuamfyoiu6nx2dayne5eh7nb2ym",
+        "skill/eightballer/orchestrator_abci/0.1.0": "bafybeifhfqurotukxdrl4paswhewm35epmfkpjzshuakmjqr4cvcgfdbtq",
+        "skill/eightballer/orchestrator/0.1.0": "bafybeifw4mymfjd3mi43bd5x4lmr47iaqswwiioozeiwrdmydcpn5p7s3a",
+        "skill/eightballer/qs_orchestrator_abci/0.1.0": "bafybeidsot42ao2y76ljsnv3ljwpivo53ekz7fexja3c3pd4xxjvf25nji",
+        "agent/eightballer/solver/0.1.0": "bafybeibijhvucordph2akv3wg5as3cfemxvvnwwyfq4pbbsir2xa65dzge",
+        "agent/eightballer/executor/0.1.0": "bafybeihzwnebizlmwlf2m6pjoz7hso37lygclonb3256zkm33sudel4ee4",
+        "agent/eightballer/orchestrator/0.1.0": "bafybeiatiteywrboyawe5xvnrbemoazuq36upmuxk5ol3nftiirgcxz2h4"
     },
     "third_party": {
         "custom/eightballer/simple_react/0.1.0": "bafybeidc3jr5walszlwrnbwuuzob6e22ph7h64k4itxv5omukd2wjzamve",

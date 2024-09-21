@@ -17,7 +17,7 @@
 #
 # ------------------------------------------------------------------------------
 
-"""This package contains the rounds of OrchestratorAbciApp."""
+"""This package contains the rounds of QSOrchestratorAbciApp."""
 
 from enum import Enum
 from typing import Dict, FrozenSet, List, Optional, Set, Tuple
@@ -32,14 +32,14 @@ from packages.valory.skills.abstract_round_abci.base import (
     EventToTimeout,
 )
 
-from packages.eightballer.skills.orchestrator_abci.payloads import (
+from packages.eightballer.skills.qs_orchestrator_abci.payloads import (
     CreateContainersPayload,
     HealthCheckPayload,
 )
 
 
 class Event(Enum):
-    """OrchestratorAbciApp Events"""
+    """QSOrchestratorAbciApp Events"""
 
     DONE = "done"
     UNHEALTHY = "unhealthy"
@@ -110,8 +110,8 @@ class SuccessfulDeploymentRound(DegenerateRound):
     """SuccessfulDeploymentRound"""
 
 
-class OrchestratorAbciApp(AbciApp[Event]):
-    """OrchestratorAbciApp"""
+class QSOrchestratorAbciApp(AbciApp[Event]):
+    """QSOrchestratorAbciApp"""
 
     initial_round_cls: AppState = HealthCheckRound
     initial_states: Set[AppState] = {HealthCheckRound}
@@ -129,7 +129,7 @@ class OrchestratorAbciApp(AbciApp[Event]):
     event_to_timeout: EventToTimeout = {}
     cross_period_persisted_keys: FrozenSet[str] = frozenset()
     db_pre_conditions: Dict[AppState, Set[str]] = {
-        HealthCheckRound: [],
+        HealthCheckRound: {"participants"},
     }
     db_post_conditions: Dict[AppState, Set[str]] = {
         SuccessfulDeploymentRound: [],

@@ -17,10 +17,16 @@
 #
 # ------------------------------------------------------------------------------
 
-"""Test the dialogues.py module of the Orchestrator."""
+"""Test the models.py module of the QSOrchestrator."""
 
-import packages.eightballer.skills.orchestrator_abci.dialogues  # noqa
+from packages.valory.skills.abstract_round_abci.test_tools.base import DummyContext
+from packages.eightballer.skills.qs_orchestrator_abci.models import SharedState
 
 
-def test_import() -> None:
-    """Test that the 'dialogues.py' of the Orchestrator can be imported."""
+class TestSharedState:
+    """Test SharedState of QSOrchestrator."""
+
+    def test_initialization(self) -> None:
+        """Test initialization."""
+        SharedState(name="", skill_context=DummyContext())
+

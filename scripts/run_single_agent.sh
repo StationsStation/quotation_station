@@ -1,20 +1,20 @@
+#!/usr/bin/env bash
+
 set -e 
+
+agent_author=$(echo $1 | cut -d'/' -f1)
+agent_name=$(echo $1 | cut -d'/' -f2)
+
+# remove if already existing
+if [ -d "$agent_name" ]; then
+    rm -r "$agent_name"
+fi
 
 # fetch the agent from the local package registry
 echo "Fetching agent $1 from the local package registry..."
 aea -s fetch $1 --local > /dev/null
 
-# go to the new agent
-# n the format eightballer/automation_station, we need to split by / nad go into the second part
-
-agent_name=$(echo $1 | cut -d'/' -f2)
-agent_author=$(echo $1 | cut -d'/' -f1)
-
-echo "   Agent author: $agent_author"
-echo "   Agent name:   $agent_name"
-
 cd $agent_name
-
 
 # create and add a new ethereum key
 if [ ! -f ../ethereum_private_key.txt ]; then

@@ -1,36 +1,31 @@
-name: qs_executor_abci
+name: executor
 author: eightballer
 version: 0.1.0
 type: skill
-description: The scaffold skill is a scaffold for your own skill implementation.
+description: The composite executor skill.
 license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  __init__.py: bafybeiba2qyjqfujzqazhdzdlolh5upetrvw4gtvj7snlajbups3no65ym
-  behaviours.py: bafybeic5mppu7wn5m2zqa2c4uvomdwjytlff25ks5bi6ehkqum7fvlgoku
-  dialogues.py: bafybeialbgbjapjc5smahmmnlv6h4k53sarkleqhybvetrtikb6ftl3lwe
-  fsm_specification.yaml: bafybeier23tyjiet5m7l6gi57a26qijw3ltbdyei2li5qquyzybipxviaa
-  handlers.py: bafybeidphljjj67bl724mysr3kqx2ygrbnakb5ppxss5vdpe456mvi4wzu
-  models.py: bafybeih3g26i25b3uupeardtjuyra7rxmpffzevhvgq4z7smsdppmp5ozu
-  payloads.py: bafybeibxutwxawbvsz4k45ohsir5p5hvmipq75cif5dp54g57hs4pls6eq
-  rounds.py: bafybeicqn3yaldlt4bib7hsd3zc2kdnuwvzj3b7jomy2kizqo7x6sunmxa
-  tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
-  tests/test_behaviours.py: bafybeiagd6beacn6ijposydzbqmcqjmw6qfljtabrg6d4k5nin4oag24xq
-  tests/test_dialogues.py: bafybeigb565dgadl3cubshv5tr3pmcdcrdg4g725ae5sr7krxqplu632si
-  tests/test_handlers.py: bafybeia4nsv4bku2u7nzw6he6vmd4cndr5v73edqmdzg3e7v27kg5sfisi
-  tests/test_models.py: bafybeic3omh3fqoc2bnwxf3ej2c7rwpot6kdyf4ji4o2j77e2kh6ff2wwe
-  tests/test_payloads.py: bafybeidqms4y5fhnzmajahkvjwrfvioo55xncmgqbv2knsbwalzcyg2xay
-  tests/test_rounds.py: bafybeifukipdwmh2w245xj5lggelpzwdtjyhf3kgjalxdnohsah4odjhk4
+  __init__.py: bafybeia3jby6oncwy6ospgxnhentb5hcd75i3eba4zuetv6zjsocpsbyvi
+  behaviours.py: bafybeicpr6c7l2smovnroomtm3iypkyqjduyewzm2bejxraqizkp7hcw2y
+  composition.py: bafybeigeayd22oluakbdojia3pxztyykfc2kjlraupgsngwmnxlipk3g6i
+  dialogues.py: bafybeicoefeaqrwrvxrzjtkfg7uqhk4vjiqfowewxjp2fao73eni2konae
+  handlers.py: bafybeihkrmyvxbdnegvrpxbuarbs2x6lc6g33epnopwtxer7lpzcotd3mq
+  models.py: bafybeictizbyrlqpq4b3brizuz3tobwevhhdl2tj4oayrludmbpb6lm5xq
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
 protocols: []
 skills:
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
+- valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
+- valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
+- valory/transaction_settlement_abci:0.1.0:bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm
+- eightballer/qs_executor_abci:0.1.0:bafybeifcksttx3aq7c7ltvi5sjbw5da5moigx6n7saiunuksev3tqdyhee
 behaviours:
   main:
     args: {}
-    class_name: QSExecutorRoundBehaviour
+    class_name: ExecutorConsensusBehaviour
 handlers:
   abci:
     args: {}
@@ -146,5 +141,5 @@ models:
     args: {}
     class_name: TendermintDialogues
 dependencies: {}
-is_abstract: true
+is_abstract: false
 customs: []
