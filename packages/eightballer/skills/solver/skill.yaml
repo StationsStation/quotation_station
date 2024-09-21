@@ -7,12 +7,12 @@ license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeigbhgaejdudzeq5hyrukl4gmuigsc7lnqufmgnaaikxunbkzvdcju
-  behaviours.py: bafybeiham7rrxp6gbztz2xwszuxfq4ln4stcwmfgns57tyhdk723qx6lbu
-  composition.py: bafybeibloj6y6bgudvzx5fpbcxkokfi23wooiafj5ncnyb3zhuipz7an7q
-  dialogues.py: bafybeicfemtv4fflm2htg6h5cv23ximivfyfdddfbsht3tsvftp3ixdh4i
+  behaviours.py: bafybeifqxvkt64bv3zd7l7kulhkjmk42hs4tbmvdetlhylk46aiyysl2q4
+  composition.py: bafybeif43xvoe76mta3dwhgheebr72rm5wbmehxxucwrbqyxjbbqjvpvoi
+  dialogues.py: bafybeifufrynksvfdrbdpziy5xyxzlvqwlo2mtf5k4csvzebtz6pl4sty4
   fsm_specification.yaml: bafybeiawtyaatpzvkohtkunezrrtlblowpubknlpcpob2vo56pklc3yhta
-  handlers.py: bafybeiak6y6smaf3l32y3p7pnqcmncrlgmhyknf6dexcgrpvzbkc44227y
-  models.py: bafybeif45bqxf7fsolewsygtjr4g6eszowai6dhfsz2acipiapourqhiyq
+  handlers.py: bafybeigxsupp45cc5qw3jdsahi7jnmhlrs6bclme2r6truia4d3kvpks2q
+  models.py: bafybeibemlc7fvkw75v5m7r3aivmdc3mxw44qra4bazys5caxllnz4tieq
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -23,11 +23,18 @@ skills:
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
 - valory/transaction_settlement_abci:0.1.0:bafybeihq2yenstblmaadzcjousowj5kfn5l7ns5pxweq2gcrsczfyq5wzm
 - eightballer/qs_solver_abci:0.1.0:bafybeicpaautpyfmqz2qwb6ebbdzl3mx26fxvpipwhnidiyoafxhwoolii
+- eightballer/ui_loader_abci:0.1.0:bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m
 behaviours:
   main:
     args: {}
     class_name: SolverConsensusBehaviour
 handlers:
+  user_interface_http:
+    args: {}
+    class_name: UserInterfaceHttpHandler
+  user_interface_ws:
+    args: {}
+    class_name: UserInterfaceWsHandler
   abci:
     args: {}
     class_name: ABCIHandler
@@ -121,7 +128,7 @@ models:
       share_tm_config_on_startup: false
       slash_cooldown_hours: 3
       slash_threshold_amount: 10000000000000000
-      sleep_time: 1
+      sleep_time: 10
       tendermint_check_sleep_delay: 3
       tendermint_com_url: http://localhost:8080
       tendermint_max_retries: 5
@@ -131,6 +138,15 @@ models:
       use_slashing: false
       use_termination: false
       validate_timeout: 1205
+      user_interface:
+        enabled: true
+        custom_component: null
+      agent_registry_address: '0xE49CB081e8d96920C38aA7AB90cb0294ab4Bc8EA'
+      termination_sleep: 900
+      termination_from_block: 0
+      blacklisting_duration: 3600
+      ipfs_address: https://gateway.autonolas.tech/ipfs/
+      staking_contract_address: '0x2Ef503950Be67a98746F484DA0bBAdA339DF3326'
     class_name: Params
   randomness_api:
     args:
@@ -155,6 +171,15 @@ models:
   tendermint_dialogues:
     args: {}
     class_name: TendermintDialogues
+  user_interface_http_dialogues:
+    args: {}
+    class_name: UserInterfaceHttpDialogues
+  user_interface_ws_dialogues:
+    args: {}
+    class_name: UserInterfaceWsDialogues
+  user_interface_client_strategy:
+    args: {}
+    class_name: UserInterfaceClientStrategy
 dependencies: {}
 is_abstract: false
 customs: []

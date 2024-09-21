@@ -20,6 +20,11 @@
 
 """This module contains the Composite ABCI application."""
 
+from packages.eightballer.skills.ui_loader_abci.rounds import (
+    ComponentLoadingAbciApp,
+    DoneRound,
+    SetupRound,
+)
 from packages.valory.skills.abstract_round_abci.abci_app_chain import (
     AbciAppTransitionMapping,
     chain,
@@ -54,7 +59,8 @@ from packages.eightballer.skills.qs_solver_abci.rounds import (
 )
 
 abci_app_transition_mapping: AbciAppTransitionMapping = {
-    FinishedRegistrationRound: AwaitingOpportunityRound,
+    FinishedRegistrationRound: SetupRound,
+    DoneRound: AwaitingOpportunityRound,
     SuccessfulExecutionRound: ResetAndPauseRound,
     FinalisedSwapTransactionsRound: RandomnessTransactionSubmissionRound,
     FinalisedClaimTransactionsRound: RandomnessTransactionSubmissionRound,
@@ -69,6 +75,7 @@ abci_app_transition_mapping: AbciAppTransitionMapping = {
 CompositeAbciApp = chain(
     (
         AgentRegistrationAbciApp,
+        ComponentLoadingAbciApp,
         QSSolverAbciApp,
         TransactionSubmissionAbciApp,
         ResetPauseAbciApp,
