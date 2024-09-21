@@ -1,4 +1,4 @@
-from base_dao import BaseDAO
+from .base_dao import BaseDAO
 
 
 class CreaterfqDAO(BaseDAO):

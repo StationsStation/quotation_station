@@ -1,4 +1,4 @@
-name: simple_html
+name: solver_ui
 author: eightballer
 version: 0.1.0
 type: custom
@@ -13,12 +13,12 @@ fingerprint:
   generated/dao/accept_dao.py: bafybeibpptcl22eqe6vvf4ih5akazzj4ejawge62a4x76et4oyr6fen3wm
   generated/dao/aggregated_data.json: bafybeie55xkynj22hsmwbb44t5z6sqj22w2stsjun5snuik7whafaldowu
   generated/dao/base_dao.py: bafybeih4pqvvvc6ukmndwpm3go7b4fgpwimo4vclzryyneftrrlie365im
-  generated/dao/create_r_f_q_dao.py: bafybeidopdbmw6oet7lmt7upzj2kkmjrqwmcslzlhp33gvbbs64olcs5gq
+  generated/dao/create_r_f_q_dao.py: bafybeibggebq35jwjmf7jtotpxki6hw4u2es4zt5i5str4na36gnbm27xm
   generated/dao/quote_dao.py: bafybeigkbutv2jm6o2dyjr5xq44m5ou7h4g5bbgxlz5udvf2vlfhl65nkm
   generated/dao/r_f_q_error_dao.py: bafybeiddfcpoowzoy2zgtn32vun7bux2vnvc4pzdcgfcvccncpesth7mje
   generated/dao/request_for_quote_dao.py: bafybeidiizmkbmfvmjhjhmujdaik7lblci6lcxq6is5eyjkukpmwjgmi4u
   generated/test_dao.py: bafybeifxeqijlzb3frm6lposcjt3meszkhibczbuw7rr3grucf7qaz3hqq
-  handlers.py: bafybeif2w7aolkwo4pu556aippzrusxzy5sguhiljfryb625r6ybxvgld4
+  handlers.py: bafybeidfqlntufjjiglakl5qgk5eehluocjrzvk2rgflwibha7xifrdsjq
   openapi3_spec.yaml: bafybeichps6ognkazltcu4zydqwgxkh4f3dc2yxjbj5wbs554z3ihuunny
   tests/test_custom.py: bafybeidafbtgi6v6gnvlkaxiyocgebdkrgcfzoj4j27zsfjbjjviaio6li
 fingerprint_ignore_patterns: []
@@ -29,5 +29,5 @@ behaviours:
 - class_name: LogReadingBehaviour
   args: {}
 handlers:
-- class_name: PingPongHandler
+- class_name: ApiHttpHandler
   args: {}

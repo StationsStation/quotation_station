@@ -41,6 +41,12 @@ from packages.valory.skills.abstract_round_abci.handlers import (
     TendermintHandler as BaseTendermintHandler,
 )
 
+from packages.eightballer.skills.ui_loader_abci.handlers import (
+    UserInterfaceHttpHandler as BaseUserInterfaceHttpHandler,
+)
+from packages.eightballer.skills.ui_loader_abci.handlers import (
+    UserInterfaceWsHandler as BaseUserInterfaceWsHandler,
+)
 
 ABCIHandler = BaseABCIRoundHandler
 HttpHandler = BaseHttpHandler
@@ -49,3 +55,6 @@ LedgerApiHandler = BaseLedgerApiHandler
 ContractApiHandler = BaseContractApiHandler
 TendermintHandler = BaseTendermintHandler
 IpfsHandler = BaseIpfsHandler
+
+UserInterfaceHttpHandler = BaseUserInterfaceHttpHandler
+UserInterfaceWsHandler = BaseUserInterfaceWsHandler

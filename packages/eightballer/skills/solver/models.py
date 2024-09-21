@@ -30,7 +30,10 @@ from packages.valory.skills.abstract_round_abci.models import (
     SharedState as BaseSharedState,
 )
 from packages.eightballer.skills.solver.composition import CompositeAbciApp
+from packages.eightballer.skills.ui_loader_abci.models import UserInterfaceLoaderParams
+from packages.eightballer.skills.ui_loader_abci.models import UserInterfaceClientStrategy as BaseUserInterfaceClientStrategy
 
+UserInterfaceClientStrategy = BaseUserInterfaceClientStrategy
 
 class ExecutionMode(Enum):
     EOA = "EOA"
@@ -47,7 +50,7 @@ class RandomnessApi(ApiSpecs):
     """A model for randomness api specifications."""
 
 
-class Params(BaseParams):
+class Params(UserInterfaceLoaderParams):
 
     def __init__(self, *args, **kwargs):
         executor_setup = kwargs["executor_setup"]

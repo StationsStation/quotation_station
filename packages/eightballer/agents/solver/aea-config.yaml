@@ -35,7 +35,7 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/solver:0.1.0:bafybeib5j3hdwsxm7e2r5s3er3vly7sdk4nnm6pa5vima2vynartaqjhke
+- eightballer/solver:0.1.0:bafybeiaqho3xgkkk6qjaglaajdx4lfnlgqxnd7bptzu3kzmodrvahoxfiu
 - eightballer/qs_solver_abci:0.1.0:bafybeicpaautpyfmqz2qwb6ebbdzl3mx26fxvpipwhnidiyoafxhwoolii
 - eightballer/ui_loader_abci:0.1.0:bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
@@ -44,7 +44,7 @@ skills:
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
 - valory/reset_pause_abci:0.1.0:bafybeievjciqdvxhqxfjd4whqs27h6qbxqzrae7wwj7fpvxlvmtw3x35im
 customs:
-- eightballer/solver_ui:0.1.0:bafybeiaipi4uw7kk65sopyzo3cj7xdtmhs4hb2q4kqxa2cep6vsawdtrpq
+- eightballer/solver_ui:0.1.0:bafybeigqcllwmkn22auit6qn25fpwhlely3oirdzdubqoosal6dw6nvywm
 default_ledger: ethereum
 required_ledgers:
 - ethereum
@@ -144,7 +144,7 @@ models:
     args:
       user_interface:
         enabled: true
-        custom_component: eightballer/simple_react
+        custom_component: eightballer/solver_ui
       setup:
         all_participants: ${list:["0x0000000000000000000000000000000000000000"]}
         consensus_threshold: ${int:null}
@@ -168,7 +168,6 @@ models:
             pub_key_types: ${list:["ed25519"]}
           version: ${dict:{}}
         voting_power: ${str:10}
-      init_fallback_gas: ${int:0}
       keeper_allowed_retries: ${int:3}
       keeper_timeout: ${float:30.0}
       max_attempts: ${int:10}
