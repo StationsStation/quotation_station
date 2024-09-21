@@ -86,7 +86,7 @@ default_connection: null
 public_id: valory/abci:0.1.0
 type: connection
 config:
-  target_skill_id: eightballer/executor:0.1.0
+  target_skill_id: eightballer/orchestrator:0.1.0
   host: ${str:localhost}
   port: ${int:26658}
   use_tendermint: ${bool:false}
