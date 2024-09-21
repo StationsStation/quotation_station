@@ -47,6 +47,9 @@ handlers:
   tendermint:
     args: {}
     class_name: TendermintHandler
+  docker_engine:
+    args: {}
+    class_name: DockerEngineHandler
 models:
   abci_dialogues:
     args: {}
@@ -67,6 +70,9 @@ models:
   ledger_api_dialogues:
     args: {}
     class_name: LedgerApiDialogues
+  docker_command_dialogues:
+    args: {}
+    class_name: DockerCommandDialogues
   params:
     args:
       cleanup_history_depth: 1
