@@ -1,4 +1,4 @@
-agent_name: solver
+agent_name: executor
 author: eightballer
 version: 0.1.0
 license: Apache-2.0

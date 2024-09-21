@@ -1,8 +1,9 @@
 {
     "dev": {
         "skill/eightballer/qs_solver_abci/0.1.0": "bafybeibbvkmv6iszkl3qgqljvuvufu3pbyo5xcwgownaftnhzffmz7kkfa",
-        "skill/eightballer/qs_executor_abci/0.1.0": "bafybeihjz6dowtljv5iu5tzl7dfmntdc2542zsmnbqxrsujeu72olliaey",
-        "agent/eightballer/solver/0.1.0": "bafybeibi3wgjpa2syt5dcwuoijtwtdyt764tw34iwdnesocshtf22w777y"
+        "skill/eightballer/qs_executor_abci/0.1.0": "bafybeiciy4up7fmowdgamcpmbtb53iig6o2irwvj5npmvzvljvaidcivdy",
+        "agent/eightballer/solver/0.1.0": "bafybeifkkfg4i6ndeb6bfizls4f2lmyzrjnr27nh2brrgk3xnjwxea7byq",
+        "agent/eightballer/executor/0.1.0": "bafybeia32aup3ftfgszgkxaxllfagqkw6aq6atyqquvujzvin5sfbw4ezi"
     },
     "third_party": {
         "custom/eightballer/simple_react/0.1.0": "bafybeidc3jr5walszlwrnbwuuzob6e22ph7h64k4itxv5omukd2wjzamve",
