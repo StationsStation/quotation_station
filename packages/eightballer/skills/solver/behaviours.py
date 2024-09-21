@@ -22,6 +22,7 @@
 
 from typing import Set, Type
 
+from packages.eightballer.skills.ui_loader_abci.behaviours import ComponentLoadingRoundBehaviour
 from packages.valory.skills.abstract_round_abci.behaviours import (
     AbstractRoundBehaviour,
     BaseBehaviour,
@@ -49,6 +50,7 @@ class SolverConsensusBehaviour(AbstractRoundBehaviour):
     abci_app_cls = CompositeAbciApp  # type: ignore
     behaviours: Set[Type[BaseBehaviour]] = {
         *AgentRegistrationRoundBehaviour.behaviours,
+        *ComponentLoadingRoundBehaviour.behaviours,
         *QSSolverRoundBehaviour.behaviours,
         *TransactionSettlementRoundBehaviour.behaviours,
         *ResetPauseABCIConsensusBehaviour.behaviours,

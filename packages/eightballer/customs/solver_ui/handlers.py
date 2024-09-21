@@ -25,11 +25,10 @@ from urllib.parse import unquote, urlparse
 from aea.skills.base import Handler
 from aea.protocols.base import Message
 from packages.eightballer.protocols.http.message import HttpMessage as ApiHttpMessage
-from packages.eightballer.skills.solver_ui.strategy import Strategy
-from packages.eightballer.skills.solver_ui.generated.dao.create_r_f_q_dao import RequestforquoteDAO
+from .generated.dao.create_r_f_q_dao import CreaterfqDAO
 
 
-rfq_dao = RequestforquoteDAO()
+rfq_dao = CreaterfqDAO()
 
 
 class ApiHttpHandler(Handler):
