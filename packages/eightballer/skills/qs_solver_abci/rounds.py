@@ -98,7 +98,7 @@ class SynchronizedData(BaseSynchronizedData):
     @property
     def tx_state(self) -> TxState:
         """Get the transaction state."""
-        return self.db.get("tx_state")
+        return self.db.get("tx_state", None)
 
 
 class AwaitingOpportunityRound(CollectSameUntilThresholdRound):
@@ -169,8 +169,10 @@ class PrepareNewSwapTransactionsRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
+        if self.context.params.executor_mode == "EOA":
+            return self.synchronized_data, Event.FINALISED
+
         return self.synchronized_data, Event.DONE
-        # return self.synchronized_data, Event.FINALISED
 
 
 class AwaitSupplierTransactionsRound(CollectSameUntilThresholdRound):
@@ -199,11 +201,11 @@ class PrepareClaimTransactionsRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.synchronized_data.tx_state == TxState.POST_CLAIM:
-            # self.tx_state = TxState.PRE_TRANSACTION
+        if (self.synchronized_data.tx_state == TxState.POST_CLAIM
+            or self.context.params.executor_mode == "EOA"):
             return self.synchronized_data, Event.FINALISED
 
-        self.tx_state = TxState.POST_CLAIM
+        self.synchronized_data.tx_state = TxState.POST_CLAIM
         return self.synchronized_data, Event.DONE
 
 
@@ -217,7 +219,8 @@ class PrepareRefundTransactionsRound(CollectSameUntilThresholdRound):
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
-        if self.synchronized_data.tx_state == TxState.POST_REFUND:
+        if (self.synchronized_data.tx_state == TxState.POST_REFUND
+            or self.params.executor_setup.execution_mode == "EOA"):
             # self.tx_state = TxState.PRE_TRANSACTION
             return self.synchronized_data, Event.FINALISED
 
