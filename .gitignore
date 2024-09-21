@@ -12,8 +12,6 @@
 *private_key*
 keys.json
 
-solver/
-executor/
 agent/
 service/
 
