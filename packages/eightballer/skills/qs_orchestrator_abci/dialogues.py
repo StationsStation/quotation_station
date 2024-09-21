@@ -17,7 +17,7 @@
 #
 # ------------------------------------------------------------------------------
 
-"""This module contains the dialogues of the OrchestratorAbciApp."""
+"""This module contains the dialogues of the QSOrchestratorAbciApp."""
 
 from packages.valory.skills.abstract_round_abci.dialogues import (
     AbciDialogue as BaseAbciDialogue,

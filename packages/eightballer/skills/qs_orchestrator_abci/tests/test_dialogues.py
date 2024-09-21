@@ -17,11 +17,10 @@
 #
 # ------------------------------------------------------------------------------
 
-"""Test the handlers.py module of the Orchestrator."""
+"""Test the dialogues.py module of the QSOrchestrator."""
 
-import packages.eightballer.skills.orchestrator_abci.handlers  # noqa
+import packages.eightballer.skills.qs_orchestrator_abci.dialogues  # noqa
 
 
 def test_import() -> None:
-    """Test that the 'handlers.py' of the Orchestrator can be imported."""
-
+    """Test that the 'dialogues.py' of the QSOrchestrator can be imported."""

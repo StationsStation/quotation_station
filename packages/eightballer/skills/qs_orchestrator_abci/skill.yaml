@@ -1,4 +1,4 @@
-name: qs_executor_abci
+name: qs_orchestrator_abci
 author: eightballer
 version: 0.1.0
 type: skill
@@ -6,21 +6,21 @@ description: The scaffold skill is a scaffold for your own skill implementation.
 license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  __init__.py: bafybeiba2qyjqfujzqazhdzdlolh5upetrvw4gtvj7snlajbups3no65ym
-  behaviours.py: bafybeic5mppu7wn5m2zqa2c4uvomdwjytlff25ks5bi6ehkqum7fvlgoku
-  dialogues.py: bafybeialbgbjapjc5smahmmnlv6h4k53sarkleqhybvetrtikb6ftl3lwe
-  fsm_specification.yaml: bafybeier23tyjiet5m7l6gi57a26qijw3ltbdyei2li5qquyzybipxviaa
-  handlers.py: bafybeidphljjj67bl724mysr3kqx2ygrbnakb5ppxss5vdpe456mvi4wzu
-  models.py: bafybeih3g26i25b3uupeardtjuyra7rxmpffzevhvgq4z7smsdppmp5ozu
-  payloads.py: bafybeibxutwxawbvsz4k45ohsir5p5hvmipq75cif5dp54g57hs4pls6eq
-  rounds.py: bafybeicqn3yaldlt4bib7hsd3zc2kdnuwvzj3b7jomy2kizqo7x6sunmxa
+  __init__.py: bafybeie2eua5twi3crfg7cqxkv62glygjnyaxlncasxsqqep3xibhsspiq
+  behaviours.py: bafybeibu73du4bptw45fsf7ddpel7ddkguobzbbfh4uxqzvpu2ogn7n6he
+  dialogues.py: bafybeihyy54kdw66khuvielotnhskgfepllwbwh4df4eqonprywbnivfku
+  fsm_specification.yaml: bafybeihdeh4s7ohlfhwdo3xxkod2xvkkr3lddpky5cg7btknjaqgyx6ra4
+  handlers.py: bafybeicwypeetjetfnkdtz5k6rq7jifa65zkv5yu5rs4mrsigqofiuizty
+  models.py: bafybeigpcx34wrocfo7yeizjoqmj4abvypcytmfiv5h3rzrkac4cwe5wsu
+  payloads.py: bafybeic4xjaksu3bxuiduqhispjiculoyfrgw2bf7c4tsmcyuksseehr2e
+  rounds.py: bafybeiha4bm4tepfayt5ropnaiuxgypskkmxxkxdj2eprvueukchvgayg4
   tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
-  tests/test_behaviours.py: bafybeiagd6beacn6ijposydzbqmcqjmw6qfljtabrg6d4k5nin4oag24xq
-  tests/test_dialogues.py: bafybeigb565dgadl3cubshv5tr3pmcdcrdg4g725ae5sr7krxqplu632si
-  tests/test_handlers.py: bafybeia4nsv4bku2u7nzw6he6vmd4cndr5v73edqmdzg3e7v27kg5sfisi
-  tests/test_models.py: bafybeic3omh3fqoc2bnwxf3ej2c7rwpot6kdyf4ji4o2j77e2kh6ff2wwe
-  tests/test_payloads.py: bafybeidqms4y5fhnzmajahkvjwrfvioo55xncmgqbv2knsbwalzcyg2xay
-  tests/test_rounds.py: bafybeifukipdwmh2w245xj5lggelpzwdtjyhf3kgjalxdnohsah4odjhk4
+  tests/test_behaviours.py: bafybeignr3x3coilwgbk2i4xbo3al7juu3pqwmzumprddv6owmzy2rdvzi
+  tests/test_dialogues.py: bafybeiehikfibq3gbxkkwfbbzlqykr7wvlvcrar3t6tnddwzexz6hgg3h4
+  tests/test_handlers.py: bafybeie3kjcyj4m3yg4a25eiivuutvidwco4qj4nzkgxyo6tgrv2slau4u
+  tests/test_models.py: bafybeibviskggtgagrgvq6k4esy6hchwxidy3x7wmcstughcemhdslpvb4
+  tests/test_payloads.py: bafybeid2ml5xuwlqbvizgvags5vt7hnbpdurbl7doswqk3ka3egoqptx5i
+  tests/test_rounds.py: bafybeih32ojpdfrg7qqw4suqe7h3gqx747ckjxnndcpl5vm4nxhxpxt2ji
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -30,7 +30,7 @@ skills:
 behaviours:
   main:
     args: {}
-    class_name: QSExecutorRoundBehaviour
+    class_name: QSOrchestratorRoundBehaviour
 handlers:
   abci:
     args: {}

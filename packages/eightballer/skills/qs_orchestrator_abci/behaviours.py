@@ -17,7 +17,7 @@
 #
 # ------------------------------------------------------------------------------
 
-"""This package contains round behaviours of OrchestratorAbciApp."""
+"""This package contains round behaviours of QSOrchestratorAbciApp."""
 
 from abc import ABC
 from typing import Generator, Set, Type, cast
@@ -28,21 +28,21 @@ from packages.valory.skills.abstract_round_abci.behaviours import (
     BaseBehaviour,
 )
 
-from packages.eightballer.skills.orchestrator_abci.models import Params
-from packages.eightballer.skills.orchestrator_abci.rounds import (
+from packages.eightballer.skills.qs_orchestrator_abci.models import Params
+from packages.eightballer.skills.qs_orchestrator_abci.rounds import (
     SynchronizedData,
-    OrchestratorAbciApp,
+    QSOrchestratorAbciApp,
     CreateContainersRound,
     HealthCheckRound,
 )
-from packages.eightballer.skills.orchestrator_abci.rounds import (
+from packages.eightballer.skills.qs_orchestrator_abci.rounds import (
     CreateContainersPayload,
     HealthCheckPayload,
 )
 
 
-class OrchestratorBaseBehaviour(BaseBehaviour, ABC):
-    """Base behaviour for the orchestrator_abci skill."""
+class QSOrchestratorBaseBehaviour(BaseBehaviour, ABC):
+    """Base behaviour for the qs_orchestrator_abci skill."""
 
     @property
     def synchronized_data(self) -> SynchronizedData:
@@ -55,7 +55,7 @@ class OrchestratorBaseBehaviour(BaseBehaviour, ABC):
         return cast(Params, super().params)
 
 
-class CreateContainersBehaviour(OrchestratorBaseBehaviour):
+class CreateContainersBehaviour(QSOrchestratorBaseBehaviour):
     """CreateContainersBehaviour"""
 
     matching_round: Type[AbstractRound] = CreateContainersRound
@@ -75,7 +75,7 @@ class CreateContainersBehaviour(OrchestratorBaseBehaviour):
         self.set_done()
 
 
-class HealthCheckBehaviour(OrchestratorBaseBehaviour):
+class HealthCheckBehaviour(QSOrchestratorBaseBehaviour):
     """HealthCheckBehaviour"""
 
     matching_round: Type[AbstractRound] = HealthCheckRound
@@ -95,11 +95,11 @@ class HealthCheckBehaviour(OrchestratorBaseBehaviour):
         self.set_done()
 
 
-class OrchestratorRoundBehaviour(AbstractRoundBehaviour):
-    """OrchestratorRoundBehaviour"""
+class QSOrchestratorRoundBehaviour(AbstractRoundBehaviour):
+    """QSOrchestratorRoundBehaviour"""
 
     initial_behaviour_cls = HealthCheckBehaviour
-    abci_app_cls = OrchestratorAbciApp  # type: ignore
+    abci_app_cls = QSOrchestratorAbciApp  # type: ignore
     behaviours: Set[Type[BaseBehaviour]] = [
         CreateContainersBehaviour,
         HealthCheckBehaviour

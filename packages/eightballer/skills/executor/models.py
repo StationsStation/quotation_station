@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # ------------------------------------------------------------------------------
 #
-#   Copyright 2024 Valory AG
+#   Copyright 2024 zarathustra
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 #
 # ------------------------------------------------------------------------------
 
-"""This module contains the shared state for the abci skill of OrchestratorAbciApp."""
+"""This module contains the shared state for the abci skill of CompositeAbciApp."""
 
 from packages.valory.skills.abstract_round_abci.models import BaseParams
 from packages.valory.skills.abstract_round_abci.models import (
@@ -27,13 +27,13 @@ from packages.valory.skills.abstract_round_abci.models import Requests as BaseRe
 from packages.valory.skills.abstract_round_abci.models import (
     SharedState as BaseSharedState,
 )
-from packages.eightballer.skills.orchestrator_abci.rounds import OrchestratorAbciApp
+from packages.eightballer.skills.executor.composition import CompositeAbciApp
 
 
 class SharedState(BaseSharedState):
-    """Keep the current shared state of the skill."""
+    """Keep the current shared state of the composite skill."""
 
-    abci_app_cls = OrchestratorAbciApp
+    abci_app_cls = CompositeAbciApp
 
 
 Params = BaseParams

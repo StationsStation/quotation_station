@@ -17,18 +17,18 @@
 #
 # ------------------------------------------------------------------------------
 
-"""This package contains the tests for rounds of Orchestrator."""
+"""This package contains the tests for rounds of QSOrchestrator."""
 
 from typing import Any, Type, Dict, List, Callable, Hashable, Mapping
 from dataclasses import dataclass, field
 
 import pytest
 
-from packages.eightballer.skills.orchestrator_abci.payloads import (
+from packages.eightballer.skills.qs_orchestrator_abci.payloads import (
     CreateContainersPayload,
     HealthCheckPayload,
 )
-from packages.eightballer.skills.orchestrator_abci.rounds import (
+from packages.eightballer.skills.qs_orchestrator_abci.rounds import (
     AbstractRound,
     Event,
     SynchronizedData,
@@ -62,8 +62,8 @@ class RoundTestCase:
 MAX_PARTICIPANTS: int = 4
 
 
-class BaseOrchestratorRoundTest(BaseRoundTestClass):
-    """Base test class for Orchestrator rounds."""
+class BaseQSOrchestratorRoundTest(BaseRoundTestClass):
+    """Base test class for QSOrchestrator rounds."""
 
     round_cls: Type[AbstractRound]
     synchronized_data: SynchronizedData
@@ -91,7 +91,7 @@ class BaseOrchestratorRoundTest(BaseRoundTestClass):
         )
 
 
-class TestCreateContainersRound(BaseOrchestratorRoundTest):
+class TestCreateContainersRound(BaseQSOrchestratorRoundTest):
     """Tests for CreateContainersRound."""
 
     round_class = CreateContainersRound
@@ -104,7 +104,7 @@ class TestCreateContainersRound(BaseOrchestratorRoundTest):
         self.run_test(test_case)
 
 
-class TestHealthCheckRound(BaseOrchestratorRoundTest):
+class TestHealthCheckRound(BaseQSOrchestratorRoundTest):
     """Tests for HealthCheckRound."""
 
     round_class = HealthCheckRound

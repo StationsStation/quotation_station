@@ -17,16 +17,11 @@
 #
 # ------------------------------------------------------------------------------
 
-"""Test the models.py module of the Orchestrator."""
+"""Test the handlers.py module of the QSOrchestrator."""
 
-from packages.valory.skills.abstract_round_abci.test_tools.base import DummyContext
-from packages.eightballer.skills.orchestrator_abci.models import SharedState
+import packages.eightballer.skills.qs_orchestrator_abci.handlers  # noqa
 
 
-class TestSharedState:
-    """Test SharedState of Orchestrator."""
-
-    def test_initialization(self) -> None:
-        """Test initialization."""
-        SharedState(name="", skill_context=DummyContext())
+def test_import() -> None:
+    """Test that the 'handlers.py' of the QSOrchestrator can be imported."""
 

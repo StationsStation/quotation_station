@@ -17,9 +17,9 @@
     #
     # ------------------------------------------------------------------------------
      
-"""This module contains the implementation of the default skill."""
+"""This module contains the implementation of the QS Orchestration ABCI skill."""
 
 from aea.configurations.base import PublicId
 
 
-PUBLIC_ID = PublicId.from_str("eightballer/orchestrator_abci:0.1.0")
+PUBLIC_ID = PublicId.from_str("eightballer/qs_orchestrator_abci:0.1.0")
