@@ -1,0 +1,26 @@
+name: rfq_protocol
+author: eightballer
+version: 0.1.0
+protocol_specification_id: eightballer/rfq_protocol:0.1.0
+type: protocol
+description: A protocol for representing a request for quotation (RFQ) in the the
+  quotation negotiation dialogue.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  README.md: bafybeia4rmin6tyjavsulezbab35xwurgc23tcdyqjwt34n2gcofgwujby
+  __init__.py: bafybeialurlcowgokiap4u6fhbyl4ng6oekjhgqr4lcempbkm4ll6ps57a
+  custom_types.py: bafybeia5duy2jc3th2s7e5dtsjl6acyhqvvswypvnzgdo7eodqvke3gogi
+  dialogues.py: bafybeiak4cyqbtcovupignkz57euwdkjgnalxcphon634ywlps5r4orj64
+  message.py: bafybeidy2dlo7q2u3f4ozyy6dbx72rqd5xvctzjyvvorpykenw4xcmbhla
+  protocol_spec.yaml: bafybeifuw3ojqrjmtz2ie6oq7gwswi23pt6w7tlwyxj7pj6stv546asgqi
+  rfq_protocol.proto: bafybeifcqud5ddd6jvpae42jra6qda6k6i4uql5aht2ee5fwbs66yfhudm
+  rfq_protocol_pb2.py: bafybeialekx6dx5pukn7bl7bst72dn765q7uupmbkdeqv47ib4azie3pkq
+  serialization.py: bafybeiez2pqr4h2x7q65pfk4ny53b4vuncjkmpdm7rplvhosup2s3sfk5a
+  tests/__init__.py: bafybeig7bnllehxlaz56ue5amshk6mm3osy7gjeufzgwfufw3feopra2ya
+  tests/dummy_data.yaml: bafybeid3m5gj3z6qc6rxywlu6k6javihl6edbg5v5ng3prbrzh6tjgcz2i
+  tests/test_rfq_protocol_dialogues.py: bafybeihwqmf4znbkkd2mi2jznsx6l5xottzrez4747ijdulbxphoessgp4
+  tests/test_rfq_protocol_messages.py: bafybeibbbifdxdciwavtjew3gvrowuok257cwhqdxqoflgl6qompmac5je
+fingerprint_ignore_patterns: []
+dependencies:
+  protobuf: {}
