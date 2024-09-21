@@ -55,3 +55,4 @@ packages/valory/skills/registration_abci
 packages/valory/skills/transaction_settlement_abci
 
 packages/eightballer/connections/docker_engine
+packages/eightballer/protocols/docker_command
