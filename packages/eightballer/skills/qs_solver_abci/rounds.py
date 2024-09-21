@@ -48,17 +48,17 @@ from packages.eightballer.skills.qs_solver_abci.payloads import (
 class Event(Enum):
     """QSSolverAbciApp Events"""
 
-    DONE = "done"
-    POST_REFUND = "post_refund"
-    QUOTES = "quotes"
-    FINALISED = "finalised"
-    TRIGGERED = "triggered"
     ACCEPT_QUOTES = "accept_quotes"
-    NOT_TRIGGERED = "not_triggered"
+    TRIGGERED = "triggered"
     NO_QUOTES = "no_quotes"
-    POST_CLAIM = "post_claim"
     POST_NEW_SWAP = "post_new_swap"
+    NOT_TRIGGERED = "not_triggered"
+    QUOTES = "quotes"
+    DONE = "done"
+    FINALISED = "finalised"
     COUNTER_PARTY_TIMEOUT = "counter_party_timeout"
+    POST_REFUND = "post_refund"
+    POST_CLAIM = "post_claim"
 
 
 class SynchronizedData(BaseSynchronizedData):
@@ -331,7 +331,7 @@ class QSSolverAbciApp(AbciApp[Event]):
     """QSSolverAbciApp"""
 
     initial_round_cls: AppState = PostTransactionRound
-    initial_states: Set[AppState] = {PostTransactionRound, AwaitingOpportunityRound}
+    initial_states: Set[AppState] = {AwaitingOpportunityRound, PostTransactionRound}
     transition_function: AbciAppTransitionFunction = {
         AwaitQuotesRound: {
             Event.NO_QUOTES: NoOpportunityRound,
@@ -369,24 +369,24 @@ class QSSolverAbciApp(AbciApp[Event]):
             Event.DONE: AwaitQuotesRound
         },
         SuccessfulExecutionRound: {},
-        UnSuccessfulExecutionRound: {},
         FinalisedClaimTransactionsRound: {},
-        FinalisedSwapTransactionsRound: {},
+        UnSuccessfulExecutionRound: {},
         NoOpportunityRound: {},
-        FinalisedRefundTransactionsRound: {}
+        FinalisedRefundTransactionsRound: {},
+        FinalisedSwapTransactionsRound: {}
     }
-    final_states: Set[AppState] = {SuccessfulExecutionRound, UnSuccessfulExecutionRound, FinalisedClaimTransactionsRound, NoOpportunityRound, FinalisedRefundTransactionsRound, FinalisedSwapTransactionsRound}
+    final_states: Set[AppState] = {FinalisedClaimTransactionsRound, UnSuccessfulExecutionRound, NoOpportunityRound, FinalisedRefundTransactionsRound, FinalisedSwapTransactionsRound, SuccessfulExecutionRound}
     event_to_timeout: EventToTimeout = {}
     cross_period_persisted_keys: FrozenSet[str] = frozenset()
     db_pre_conditions: Dict[AppState, Set[str]] = {
-        PostTransactionRound: [],
-    	AwaitingOpportunityRound: [],
+        AwaitingOpportunityRound: [],
+    	PostTransactionRound: [],
     }
     db_post_conditions: Dict[AppState, Set[str]] = {
-        SuccessfulExecutionRound: [],
+        FinalisedClaimTransactionsRound: [],
     	UnSuccessfulExecutionRound: [],
-    	FinalisedClaimTransactionsRound: [],
     	NoOpportunityRound: [],
     	FinalisedRefundTransactionsRound: [],
     	FinalisedSwapTransactionsRound: [],
+    	SuccessfulExecutionRound: [],
     }

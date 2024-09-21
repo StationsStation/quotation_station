@@ -1,43 +1,43 @@
 alphabet_in:
-- ACCEPT_QUOTES
 - POST_CLAIM
-- POST_NEW_SWAP
-- NO_QUOTES
-- FINALISED
-- TRIGGERED
-- NOT_TRIGGERED
-- DONE
-- QUOTES
-- COUNTER_PARTY_TIMEOUT
 - POST_REFUND
+- NO_QUOTES
+- NOT_TRIGGERED
+- TRIGGERED
+- ACCEPT_QUOTES
+- DONE
+- FINALISED
+- QUOTES
+- POST_NEW_SWAP
+- COUNTER_PARTY_TIMEOUT
 default_start_state: PostTransactionRound
 final_states:
 - SuccessfulExecutionRound
+- FinalisedSwapTransactionsRound
 - FinalisedClaimTransactionsRound
 - FinalisedRefundTransactionsRound
 - UnSuccessfulExecutionRound
-- FinalisedSwapTransactionsRound
 - NoOpportunityRound
 label: QSSolverAbciApp
 start_states:
 - PostTransactionRound
 - AwaitingOpportunityRound
 states:
-- PrepareRefundTransactionsRound
-- PostTransactionRound
-- SubmitRFQRound
-- AwaitSupplierTransactionsRound
-- AwaitQuotesRound
 - SuccessfulExecutionRound
-- FinalisedClaimTransactionsRound
-- FinalisedRefundTransactionsRound
-- UnSuccessfulExecutionRound
-- AwaitingOpportunityRound
 - PrepareClaimTransactionsRound
-- FinalisedSwapTransactionsRound
 - PrepareNewSwapTransactionsRound
-- NoOpportunityRound
+- FinalisedSwapTransactionsRound
+- SubmitRFQRound
 - SelectQuotesRound
+- AwaitSupplierTransactionsRound
+- FinalisedClaimTransactionsRound
+- UnSuccessfulExecutionRound
+- FinalisedRefundTransactionsRound
+- PostTransactionRound
+- AwaitingOpportunityRound
+- PrepareRefundTransactionsRound
+- AwaitQuotesRound
+- NoOpportunityRound
 transition_func:
   (AwaitQuotesRound, NO_QUOTES): NoOpportunityRound
   (AwaitQuotesRound, QUOTES): SelectQuotesRound

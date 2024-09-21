@@ -8,12 +8,12 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeifen2qgfpo337cxiwbj66p3o2j7rf2k75cgpwumhvtk72jbu3umyu
   behaviours.py: bafybeifdf7mo5vcuqihekqyxxvbkok3urmwabbcdth5cnvcq66z4ldjklm
-  buyer_fsm.yaml: bafybeiccpmezeyzltr7asq4ln7csoxwz6b2ghtnrpu3usjzoa3hm7x7toy
+  buyer_fsm.yaml: bafybeiatdlxqln32ecadlt6sh76oz5637aghapkbcx7ptzanz7pgg25q5e
   dialogues.py: bafybeicx2ropyidjhsqfp7tbmx42s4nqjx2hlv7t4x34eetlsxyqiaafz4
   handlers.py: bafybeiawpagijm2yelzg7nrpekpzyuasaywavzln7jvfai6ko7n2skzq64
   models.py: bafybeiaeszppzb7vw6hvxhgr6smczr3mc4nwiqsgps7zbyhce2mrvpakwe
   payloads.py: bafybeib23tapxq44yicibnaurxd7ywhsctutj3dz5wxc3z4cdv3skkxyou
-  rounds.py: bafybeiabonfcvt7lh6zzdd3df5xjfx3dbqwxsyqqe5r4snghuekakpmq7u
+  rounds.py: bafybeifj4q2zxeop3ys5wq4chnc5fkemmduqd2doy2qfsd5bh4l2untg3e
   tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
   tests/test_behaviours.py: bafybeieegyuuvrhlj3kes3h5vjvkreya7djbaj3qgzqed3efqte6al7qge
   tests/test_dialogues.py: bafybeidhz6bd2ofqrrtn7xbaimwx63athfs75xuzah6utb47a2lw7db26q
