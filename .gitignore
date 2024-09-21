@@ -55,3 +55,14 @@ packages/valory/skills/transaction_settlement_abci
 
 packages/eightballer/connections/docker_engine
 packages/eightballer/protocols/docker_command
+
+packages/eightballer/protocols/spot_asset
+packages/eightballer/protocols/tickers
+packages/eightballer/protocols/default
+packages/eightballer/protocols/markets
+packages/eightballer/protocols/positions
+packages/eightballer/protocols/ohlcv
+packages/eightballer/protocols/order_book
+packages/eightballer/protocols/balances
+packages/eightballer/protocols/orders
+packages/eightballer/connections/ccxt
