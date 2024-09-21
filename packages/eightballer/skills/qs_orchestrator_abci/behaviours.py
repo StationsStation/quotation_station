@@ -66,7 +66,7 @@ class CreateContainersBehaviour(QSOrchestratorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = CreateContainersPayload(sender=sender, content=...)
+            payload = CreateContainersPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
@@ -86,7 +86,7 @@ class HealthCheckBehaviour(QSOrchestratorBaseBehaviour):
 
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
             sender = self.context.agent_address
-            payload = HealthCheckPayload(sender=sender, content=...)
+            payload = HealthCheckPayload(sender=sender, content="dummy_content")
 
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)

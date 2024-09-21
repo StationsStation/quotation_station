@@ -19,6 +19,7 @@
 
 """This module contains the transaction payloads of the OrchestratorAbciApp."""
 
+from typing import Any
 from dataclasses import dataclass
 
 from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
@@ -28,12 +29,11 @@ from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
 class CreateContainersPayload(BaseTxPayload):
     """Represent a transaction payload for the CreateContainersRound."""
 
-    # TODO: define your attributes
+    content: Any
 
 
 @dataclass(frozen=True)
 class HealthCheckPayload(BaseTxPayload):
     """Represent a transaction payload for the HealthCheckRound."""
 
-    # TODO: define your attributes
-
+    content: Any
