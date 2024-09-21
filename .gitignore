@@ -25,7 +25,6 @@ packages/eightballer/customs/simple_html
 packages/eightballer/connections/http_client
 packages/eightballer/connections/http_server
 packages/eightballer/connections/websocket_server
-packages/eightballer/skills/ui_loader_abci
 packages/eightballer/skills/trader_abci
 
 packages/valory/protocols/abci
