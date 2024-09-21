@@ -35,8 +35,8 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/solver:0.1.0:bafybeifhbyofoqtrjx26ag53euu6zel3songxrunwkpuqxokmvqmv5vrgu
-- eightballer/qs_solver_abci:0.1.0:bafybeiftibaxsflf6g67ztxc24afdj2ennfqu4cyxafqhbwnvkdwabhc3u
+- eightballer/solver:0.1.0:bafybeibmx5rx56lux3n4a34cucrbql46soj5hfun36do3kewtzdv7efjl4
+- eightballer/qs_solver_abci:0.1.0:bafybeif4il2z2t5ru7h6mu6gd4lughhercgkkmb3lox4urnytldtoxp3xm
 - eightballer/ui_loader_abci:0.1.0:bafybeiaxvd2buw2hpwemt24krc5e5w7cdta6obbw2q3wnbumzwpwnx3x7m
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim

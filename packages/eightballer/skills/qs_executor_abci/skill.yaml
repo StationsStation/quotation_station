@@ -13,7 +13,7 @@ fingerprint:
   handlers.py: bafybeidphljjj67bl724mysr3kqx2ygrbnakb5ppxss5vdpe456mvi4wzu
   models.py: bafybeih3g26i25b3uupeardtjuyra7rxmpffzevhvgq4z7smsdppmp5ozu
   payloads.py: bafybeibxutwxawbvsz4k45ohsir5p5hvmipq75cif5dp54g57hs4pls6eq
-  rounds.py: bafybeifqboyqazxwv2ml3uvlxriim35xcwqr7bmqf7utqtnsmquzpxxrda
+  rounds.py: bafybeicqn3yaldlt4bib7hsd3zc2kdnuwvzj3b7jomy2kizqo7x6sunmxa
   tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
   tests/test_behaviours.py: bafybeiagd6beacn6ijposydzbqmcqjmw6qfljtabrg6d4k5nin4oag24xq
   tests/test_dialogues.py: bafybeigb565dgadl3cubshv5tr3pmcdcrdg4g725ae5sr7krxqplu632si
@@ -100,6 +100,7 @@ models:
       ipfs_domain_name: null
       keeper_allowed_retries: 3
       keeper_timeout: 30.0
+      light_slash_unit_amount: 5000000000000000
       max_attempts: 10
       max_healthcheck: 120
       on_chain_service_id: null
@@ -110,7 +111,8 @@ models:
       retry_attempts: 400
       retry_timeout: 3
       round_timeout_seconds: 30.0
-      service_id: q_s_executor
+      serious_slash_unit_amount: 8000000000000000
+      service_id: qs_solver
       service_registry_address: null
       setup:
         all_participants:
@@ -118,6 +120,8 @@ models:
         consensus_threshold: null
         safe_contract_address: '0x0000000000000000000000000000000000000000'
       share_tm_config_on_startup: false
+      slash_cooldown_hours: 3
+      slash_threshold_amount: 10000000000000000
       sleep_time: 1
       tendermint_check_sleep_delay: 3
       tendermint_com_url: http://localhost:8080
@@ -125,6 +129,8 @@ models:
       tendermint_p2p_url: localhost:26656
       tendermint_url: http://localhost:26657
       tx_timeout: 10.0
+      use_slashing: false
+      use_termination: false
       validate_timeout: 1205
     class_name: Params
   requests:
@@ -140,5 +146,5 @@ models:
     args: {}
     class_name: TendermintDialogues
 dependencies: {}
-is_abstract: false
+is_abstract: true
 customs: []
