@@ -1,6 +1,7 @@
 {
     "dev": {
         "skill/eightballer/qs_solver_abci/0.1.0": "bafybeibbvkmv6iszkl3qgqljvuvufu3pbyo5xcwgownaftnhzffmz7kkfa",
+        "skill/eightballer/qs_executor_abci/0.1.0": "bafybeihjz6dowtljv5iu5tzl7dfmntdc2542zsmnbqxrsujeu72olliaey",
         "agent/eightballer/solver/0.1.0": "bafybeibi3wgjpa2syt5dcwuoijtwtdyt764tw34iwdnesocshtf22w777y"
     },
     "third_party": {
