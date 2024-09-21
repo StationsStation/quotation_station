@@ -13,7 +13,7 @@ fingerprint:
   handlers.py: bafybeiawpagijm2yelzg7nrpekpzyuasaywavzln7jvfai6ko7n2skzq64
   models.py: bafybeiaeszppzb7vw6hvxhgr6smczr3mc4nwiqsgps7zbyhce2mrvpakwe
   payloads.py: bafybeib23tapxq44yicibnaurxd7ywhsctutj3dz5wxc3z4cdv3skkxyou
-  rounds.py: bafybeifj4q2zxeop3ys5wq4chnc5fkemmduqd2doy2qfsd5bh4l2untg3e
+  rounds.py: bafybeigw7efl3kandtnt2linbihy4a3fk2v6l62ic2mx5dxv5u7fld4gtm
   tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
   tests/test_behaviours.py: bafybeieegyuuvrhlj3kes3h5vjvkreya7djbaj3qgzqed3efqte6al7qge
   tests/test_dialogues.py: bafybeidhz6bd2ofqrrtn7xbaimwx63athfs75xuzah6utb47a2lw7db26q
@@ -100,6 +100,7 @@ models:
       ipfs_domain_name: null
       keeper_allowed_retries: 3
       keeper_timeout: 30.0
+      light_slash_unit_amount: 5000000000000000
       max_attempts: 10
       max_healthcheck: 120
       on_chain_service_id: null
@@ -110,7 +111,8 @@ models:
       retry_attempts: 400
       retry_timeout: 3
       round_timeout_seconds: 30.0
-      service_id: q_s_solver
+      serious_slash_unit_amount: 8000000000000000
+      service_id: qs_solver
       service_registry_address: null
       setup:
         all_participants:
@@ -118,6 +120,8 @@ models:
         consensus_threshold: null
         safe_contract_address: '0x0000000000000000000000000000000000000000'
       share_tm_config_on_startup: false
+      slash_cooldown_hours: 3
+      slash_threshold_amount: 10000000000000000
       sleep_time: 1
       tendermint_check_sleep_delay: 3
       tendermint_com_url: http://localhost:8080
@@ -125,6 +129,8 @@ models:
       tendermint_p2p_url: localhost:26656
       tendermint_url: http://localhost:26657
       tx_timeout: 10.0
+      use_slashing: false
+      use_termination: false
       validate_timeout: 1205
     class_name: Params
   requests:
