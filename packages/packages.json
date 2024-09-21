@@ -4,14 +4,14 @@
         "protocol/eightballer/rfq_protocol/0.1.0": "bafybeibxdtj6rhsyn5gp2k5xwm54yegmitdckaiep5opbf4pzz5zobfy3y",
         "contract/eightballer/cross_chain_atomic_swap/0.1.0": "bafybeigyaoruwtimxz2djdaxdwosid5f5ezhycexdc6ibjoieklft5ryj4",
         "skill/eightballer/qs_solver_abci/0.1.0": "bafybeicpaautpyfmqz2qwb6ebbdzl3mx26fxvpipwhnidiyoafxhwoolii",
-        "skill/eightballer/qs_executor_abci/0.1.0": "bafybeihpr66gsnxhtwzx4jlj4nybn4b3pr24ujvzgaurm4kdqo5426vozm",
+        "skill/eightballer/qs_executor_abci/0.1.0": "bafybeibjiwpwmt2i4vyopl7a7o47cd73zdzmjyjurnf4q3wlsinp6d3rxa",
         "skill/eightballer/solver/0.1.0": "bafybeiaqho3xgkkk6qjaglaajdx4lfnlgqxnd7bptzu3kzmodrvahoxfiu",
-        "skill/eightballer/executor/0.1.0": "bafybeigjcnik4kiowwecsgrwgog32zqce272uyvmb27xzcmvgumpxpon2a",
+        "skill/eightballer/executor/0.1.0": "bafybeiblauzr53cjxqzowj6uy7ootmjiqwhmss7op2jow73hug6ljc6eri",
         "skill/eightballer/orchestrator_abci/0.1.0": "bafybeifhfqurotukxdrl4paswhewm35epmfkpjzshuakmjqr4cvcgfdbtq",
         "skill/eightballer/orchestrator/0.1.0": "bafybeievnq2lk6wy5rooirw5s7lhmd35lyjgxgejledsmgfp6s2cnt4ora",
         "skill/eightballer/qs_orchestrator_abci/0.1.0": "bafybeihyxy6yna2vfkzbyjrcgvamwb4p5do32wfdxzglwcopayya6msrwq",
         "agent/eightballer/solver/0.1.0": "bafybeichwcqw7nkxsapozrv2fvnmvq5dmmsi545y22wuu7fgnfov53db64",
-        "agent/eightballer/executor/0.1.0": "bafybeicbp5ghivmbeps5w552rnbvbjibght2rhgqxfp5u2mxqqgkfmml3y",
+        "agent/eightballer/executor/0.1.0": "bafybeibsnvex7b7mh57mu2djlc5s5q7l5j42xrzarmsfswkdpwl5mle2be",
         "agent/eightballer/orchestrator/0.1.0": "bafybeifuw2h5wouzzyv2grjpubm2v7cp6p2bqfklinnatyzr54adh3sshy"
     },
     "third_party": {

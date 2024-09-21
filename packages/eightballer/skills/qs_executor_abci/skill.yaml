@@ -1,4 +1,4 @@
-name: qs_orchestrator_abci
+name: qs_executor_abci
 author: eightballer
 version: 0.1.0
 type: skill
@@ -7,13 +7,13 @@ license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeiba2qyjqfujzqazhdzdlolh5upetrvw4gtvj7snlajbups3no65ym
-  behaviours.py: bafybeic5mppu7wn5m2zqa2c4uvomdwjytlff25ks5bi6ehkqum7fvlgoku
+  behaviours.py: bafybeidl4esjj67up7mppzweasac76yy3v7aukiyoub45sgsebvekdwcve
   dialogues.py: bafybeialbgbjapjc5smahmmnlv6h4k53sarkleqhybvetrtikb6ftl3lwe
   fsm_specification.yaml: bafybeier23tyjiet5m7l6gi57a26qijw3ltbdyei2li5qquyzybipxviaa
   handlers.py: bafybeidphljjj67bl724mysr3kqx2ygrbnakb5ppxss5vdpe456mvi4wzu
-  models.py: bafybeifjvrwsfz367tqwwiusckl6izg5if7zr673aszqk7wcs2nrp6gzea
-  payloads.py: bafybeibxutwxawbvsz4k45ohsir5p5hvmipq75cif5dp54g57hs4pls6eq
-  rounds.py: bafybeifzoyd3kw6r5co4or5g4hmfqumdnjjrc27pq64enan7smdsjkixyu
+  models.py: bafybeibu6oat32qe2itqnnnhs3omcvztsd4e4jup7wv4usgusfzlcvylym
+  payloads.py: bafybeidggtaeeav2mv3ua2ccjadcf7getyoqir2fhoog5ixadmedc4dal4
+  rounds.py: bafybeicfji6frcc2t4bipkdyu2ld6m4d2gidu6gj3of7hpuk6zddaupqsq
   tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
   tests/test_behaviours.py: bafybeiagd6beacn6ijposydzbqmcqjmw6qfljtabrg6d4k5nin4oag24xq
   tests/test_dialogues.py: bafybeigb565dgadl3cubshv5tr3pmcdcrdg4g725ae5sr7krxqplu632si
@@ -78,6 +78,8 @@ models:
       cleanup_history_depth: 1
       cleanup_history_depth_current: null
       drand_public_key: 868f005eb8e6e4ca0a47c8a77ceaa5309a47978a7c71bc5cce96366b5d7a569937c529eeda66c7293784a9402801af31
+      executor_setup:
+        execution_mode: EOA
       finalize_timeout: 60.0
       genesis_config:
         chain_id: chain-c4daS1
@@ -133,17 +135,6 @@ models:
       use_termination: false
       validate_timeout: 1205
     class_name: Params
-  randomness_api:
-    args:
-      api_id: cloudflare
-      headers: {}
-      method: GET
-      parameters: {}
-      response_key: null
-      response_type: dict
-      retries: 5
-      url: https://drand.cloudflare.com/public/latest
-    class_name: RandomnessApi
   requests:
     args: {}
     class_name: Requests
