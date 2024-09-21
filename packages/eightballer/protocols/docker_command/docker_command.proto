@@ -1,0 +1,141 @@
+syntax = "proto3";
+
+package aea.eightballer.docker_management.v0_1_0;
+
+message DockerCommandMessage{
+
+  // Custom Types
+  message ContainerStatus{
+    enum ContainerStatusEnum{
+      CONTAINER_STATUS_ENUM_CREATED = 0;
+      CONTAINER_STATUS_ENUM_RUNNING = 1;
+      CONTAINER_STATUS_ENUM_PAUSED = 2;
+      CONTAINER_STATUS_ENUM_RESTARTING = 3;
+      CONTAINER_STATUS_ENUM_REMOVING = 4;
+      CONTAINER_STATUS_ENUM_EXITED = 5;
+      CONTAINER_STATUS_ENUM_DEAD = 6;
+      CONTAINER_STATUS_ENUM_NOT_FOUND = 7;
+    }
+    ContainerStatusEnum container_status = 1;
+  }
+
+  message ErrorCode{
+    enum ErrorCodeEnum {
+      ERROR_CODE_ENUM_BUILD_ERROR = 0;
+      ERROR_CODE_ENUM_RUN_ERROR = 1;
+      ERROR_CODE_ENUM_STATUS_ERROR = 2;
+      ERROR_CODE_ENUM_INVALID_REQUEST = 3;
+    }
+    ErrorCodeEnum error_code = 1;
+  }
+
+  message PsResponse{
+    string container_id = 1;
+    string image = 2;
+    string command = 3;
+    string created = 4;
+    ContainerStatus status = 5;
+    map<string, string> ports = 6;
+    repeated string names = 7;
+  }
+
+  message PsResponses{
+    repeated PsResponse containers = 1;
+  }
+
+
+  // Performatives and contents
+  message Build_Performative{
+    string image_name = 1;
+    string context = 2;
+    bool context_is_set = 3;
+    string dockerfile_path = 4;
+    bool dockerfile_path_is_set = 5;
+    map<string, string> build_args = 6;
+    bool build_args_is_set = 7;
+  }
+
+  message Run_Performative{
+    string image_name = 1;
+    string container_name = 2;
+    bool container_name_is_set = 3;
+    map<string, string> environment = 4;
+    bool environment_is_set = 5;
+    string command = 6;
+    bool command_is_set = 7;
+    repeated string args = 8;
+    bool args_is_set = 9;
+    string entrypoint = 10;
+    bool entrypoint_is_set = 11;
+    map<string, string> ports = 12;
+    bool ports_is_set = 13;
+    bool detach = 14;
+    bool detach_is_set = 15;
+    map<string, string> volumes = 16;
+    bool volumes_is_set = 17;
+  }
+
+  message Kill_Performative{
+    string id = 1;
+  }
+
+  message Logs_Performative{
+    string id = 1;
+    bool stream = 2;
+    bool stream_is_set = 3;
+  }
+
+  message Ps_Performative{
+    bool all = 1;
+    string container_id = 2;
+    bool container_id_is_set = 3;
+  }
+
+  message Logs_Response_Performative{
+    repeated string logs = 1;
+  }
+
+  message Build_Response_Performative{
+    string image_id = 1;
+  }
+
+  message Run_Response_Performative{
+    ContainerStatus status = 1;
+    string container_id = 2;
+    bool container_id_is_set = 3;
+    repeated string logs = 4;
+  }
+
+  message Kill_Response_Performative{
+    ContainerStatus status = 1;
+  }
+
+  message Ps_All_Response_Performative{
+    PsResponses containers = 1;
+  }
+
+  message Ps_Container_Response_Performative{
+    PsResponse container = 1;
+  }
+
+  message Error_Performative{
+    ErrorCode error_code = 1;
+    string error_msg = 2;
+  }
+
+
+  oneof performative{
+    Build_Performative build = 5;
+    Build_Response_Performative build_response = 6;
+    Error_Performative error = 7;
+    Kill_Performative kill = 8;
+    Kill_Response_Performative kill_response = 9;
+    Logs_Performative logs = 10;
+    Logs_Response_Performative logs_response = 11;
+    Ps_Performative ps = 12;
+    Ps_All_Response_Performative ps_all_response = 13;
+    Ps_Container_Response_Performative ps_container_response = 14;
+    Run_Performative run = 15;
+    Run_Response_Performative run_response = 16;
+  }
+}

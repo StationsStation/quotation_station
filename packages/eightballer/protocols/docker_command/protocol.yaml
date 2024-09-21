@@ -1,0 +1,26 @@
+name: docker_command
+author: eightballer
+version: 0.1.0
+protocol_specification_id: eightballer/docker_management:0.1.0
+type: protocol
+description: A protocol for managing Docker containers through interactions between
+  an agent and a local manager.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  README.md: bafybeibzmjmh3ijplflg55jczn4jff6jmadt26yip6gpusvqtfydx4hroa
+  __init__.py: bafybeieellnlz7oitkbn7mwpri6qe7ayti55vhgrxidipkxjrxoiavg5ky
+  custom_types.py: bafybeicuiirvstmpmxouhtulcvb5uwnwmocodttqgrsmwz2d6o6447pw6i
+  dialogues.py: bafybeia2hulmveyqlewu45qknolzxpvymkfma6s7eyxo3skbhecwrbzyta
+  docker_command.proto: bafybeiecivqhnzudfjhzcuqgxvcxkdyiqhl5dusnp5tdhbczped5gyj4dm
+  docker_command_pb2.py: bafybeianfutjkx3yswbzyixvuhduq66jxcxatb4tcv3h3dxn2m766ct5h4
+  message.py: bafybeie3h7zrnbwnknts4apo4xghznwcko67cgpxaic3s67iu6puqu6rii
+  protocol_spec.yaml: bafybeiglcd2jqi7fydrhc77syd3islrz4tfm4kuwguctf7rm2htnx7sfia
+  serialization.py: bafybeih5r3hjnfcluiz3cxkn2pxkqi4mbjyckppc7piywj6uinit6p4cve
+  tests/__init__.py: bafybeifmesqmldjbxngjnmfcvjphbxrl7ttrur3ihgq42j2l4jdonwrfk4
+  tests/dummy_data.yaml: bafybeidxwgepdds22yfvttjs2b4w2tkmjs6acpjjtghv4boa7xhu3qgnpy
+  tests/test_docker_command_dialogues.py: bafybeibozcux3xjikknujhjzzgxn2ut7ssahf2qkyvjsjsdencva4mmmuq
+  tests/test_docker_command_messages.py: bafybeih4ofjflfmwrbyv6cscasubacetpj2agh3wfm37pvj2lnqz55qdcy
+fingerprint_ignore_patterns: []
+dependencies:
+  protobuf: {}
