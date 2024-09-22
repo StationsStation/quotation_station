@@ -16,6 +16,7 @@ fingerprint:
   dcxt/exceptions.py: bafybeiepgf7ekdajqflr3shwncrak4jeic7lzmn5googjnsealnlguftpq
   dcxt/hundred_x.py: bafybeich3t5eowkzr4fnqvycosnnq37kw753jcriit2gbfretrrieap6ny
   dcxt/lyra_v2.py: bafybeiaijqifz3gwluns4vrlxzuu7aszasr4di6dpjxvsqgvpomm4hotxe
+  dcxt/uniswap.py: bafybeibrzmxxplkeubd7f5ozhiytka3ecnqmnp4yzcaevlugmxzwlufr34
   interfaces/balance.py: bafybeieohl3v66ygofdi5mmtcfdwlz3rwwo7r77n2kml3lcnczs6vrebc4
   interfaces/interface.py: bafybeihflhmbxhxrei4eyfce5euokl4gl73lcdmlqx6vaf6m4cczhu5krm
   interfaces/interface_base.py: bafybeiclbmxcckwyax4w2iyvywjs5n4fhvalcq3adpqka3zggnxuhlxlr4
@@ -34,7 +35,7 @@ fingerprint:
   tests/protocols/test_order_interface.py: bafybeia6vn5rikitboxsce5tiltzveix4vkbctqfsz3jt554u2fbcc63pi
   tests/protocols/test_positions_interface.py: bafybeifaian2uncrly75anrzqd3rj3zu4stxjf4og5mcyfzwi6qujo4au4
   tests/protocols/test_spot_asset_interface.py: bafybeid6qnwd3a4ra4abfru6e5tb7mxxnpayrrryv5zn32i2diyolq3lv4
-  tests/protocols/test_tickers.py: bafybeidlwujshrnfq3psdnkluxbwuc52hjgdvqt47wprs6xzt22fkkncfa
+  tests/protocols/test_tickers.py: bafybeiaz7n3qqpezbesk32csc3ixdj263n4xpodsiar47yx6w26qui7xhi
   tests/test_dcxt_connection.py: bafybeifdrp7pwd7oqp5zw6engsdixadagvrt5jspn6q242isfkyzhge4ee
 fingerprint_ignore_patterns: []
 connections: []
