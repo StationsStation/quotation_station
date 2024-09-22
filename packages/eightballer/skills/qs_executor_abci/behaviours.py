@@ -20,8 +20,10 @@
 """This package contains round behaviours of QSExecutorAbciApp."""
 
 from abc import ABC
+import json
 from typing import Generator, Set, Type, cast
 
+from packages.eightballer.protocols.balances.message import BalancesMessage
 from packages.valory.skills.abstract_round_abci.base import AbstractRound
 from packages.valory.skills.abstract_round_abci.behaviours import (
     AbstractRoundBehaviour,
@@ -114,15 +116,67 @@ class CollectExchangeDataBehaviour(QSExecutorBaseBehaviour):
     def async_act(self) -> Generator:
         """Do the act, supporting asynchronous execution."""
 
-        with self.context.benchmark_tool.measure(self.behaviour_id).local():
-            sender = self.context.agent_address
-            payload = CollectExchangeDataPayload(sender=sender, content="dummy_content")
+        dex_exchange_ids = self.params.dex_data_retrieval_config.exchange_ids
+        dex_extra_kwargs = self.params.dex_data_retrieval_config.extra_kwargs
 
+        cex_exchange_ids = self.params.cex_data_retrieval_config.exchange_ids
+        cex_extra_kwargs = self.params.cex_data_retrieval_config.extra_kwargs
+
+        exchange_to_balances = {}
+        with self.context.benchmark_tool.measure(self.behaviour_id).local():
+            for exchange_id in dex_exchange_ids:
+                params = {}
+                if dex_extra_kwargs is not None:
+                    params = dex_extra_kwargs.get(exchange_id, {}).copy()
+                # extra kwargs must in the form str to bytes
+                for key, value in params.items():
+                    params[key] = value.encode("utf-8")
+
+                msg: BalancesMessage = yield from self.get_dcxt_response(
+                    protocol_performative=BalancesMessage.Performative.GET_ALL_BALANCES,
+                    exchange_id=exchange_id,
+                    params=params,
+                )
+
+                balances = self._from_balances_to_dict(msg, exchange_id)
+                self.context.logger.info(f"Received {len(balances[exchange_id])} balances from {exchange_id}")
+                exchange_to_balances.update(balances)
+
+            for exchange_id in cex_exchange_ids:
+                params = {}
+                if cex_extra_kwargs is not None:
+                    params = cex_extra_kwargs.get(exchange_id, {}).copy()
+                # extra kwargs must in the form str to bytes
+                for key, value in params.items():
+                    params[key] = value.encode("utf-8")
+
+                msg: BalancesMessage = yield from self.get_ccxt_response(
+                    protocol_performative=BalancesMessage.Performative.GET_ALL_BALANCES,
+                    exchange_id=exchange_id,
+                    params=params,
+                )
+
+                balances = self._from_balances_to_dict(msg, exchange_id)
+                self.context.logger.info(f"Received {len(balances[exchange_id])} balances from {exchange_id}")
+                exchange_to_balances.update(balances)
+
+        
+            sender = self.context.agent_address
+            payload = CollectExchangeDataPayload(
+                sender=sender,
+                content=json.dumps(exchange_to_balances),
+            )
         with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
             yield from self.send_a2a_transaction(payload)
             yield from self.wait_until_round_end()
 
         self.set_done()
+
+    def _from_balances_to_dict(self, balances_msg: BalancesMessage, exchange_id: str) -> dict:
+        """Convert balances message to dict."""
+        return {
+            exchange_id: [b.as_json() for b in balances_msg.balances.balances],
+        }
 
 
 class PostTransactionBehaviour(QSExecutorBaseBehaviour):
