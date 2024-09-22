@@ -10,7 +10,7 @@ fingerprint: {}
 fingerprint_ignore_patterns: []
 connections:
 - eightballer/ccxt:0.1.0:bafybeihan7qcwpi2ye2k4d7rd5omxgrbkumcktnw34r76vlhr5nse6yqda
-- eightballer/dcxt:0.1.0:bafybeiddmb7bvsnrkmd7l2qy2iewjhagzo7kxggnxv35mgph4ntsaatq3i
+- eightballer/dcxt:0.1.0:bafybeib4y5kby6tgpeaxyqt6peckkt26ui5fxcqcwzthd36n6bu4lp2lte
 - eightballer/http_client:0.1.0:bafybeidxqvcgobltkb5rgokakcfo25ntfhlffmpzqap6oid4ttmwbvn4qi
 - eightballer/http_server:0.1.0:bafybeid7u7cx2smnb3iz6zs6gt3k4ijwevm6yqqfo4pmziqoubl2p52ele
 - eightballer/websocket_server:0.1.0:bafybeicjga2qjroxogl7eptogmocfcwpqkfppxml3rad6xoc6e7hrfhzaq
@@ -46,8 +46,8 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/executor:0.1.0:bafybeiblauzr53cjxqzowj6uy7ootmjiqwhmss7op2jow73hug6ljc6eri
-- eightballer/qs_executor_abci:0.1.0:bafybeibjiwpwmt2i4vyopl7a7o47cd73zdzmjyjurnf4q3wlsinp6d3rxa
+- eightballer/executor:0.1.0:bafybeibpagx2lh5o2sqr6x5bzxfdsvuvmhpgdrm5lze5h3ttlbr53cy2dm
+- eightballer/qs_executor_abci:0.1.0:bafybeiczpw4n4guuoi5gjuhrvcoe7gz7xthlpitn3sqngj6v7ekyl7ptma
 - eightballer/ui_loader_abci:0.1.0:bafybeiao2sputqzhgujj5f7w2xwkhvqn2p3lqs6gkwcpqfm5yfonez2n6y
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
@@ -143,3 +143,137 @@ config:
   host: 0.0.0.0
   port: 5556
   target_skill_id: eightballer/executor:0.1.0
+---
+public_id: eightballer/ccxt:0.1.0
+type: connection
+config:
+  target_skill_id: eightballer/executor:0.1.0
+  exchanges:
+  - name: deribit
+    api_key: ${CONNECTION_CCXT_CONFIG_EXCHANGES_0_API_KEY:str:none}
+    api_secret: ${CONNECTION_CCXT_CONFIG_EXCHANGES_0_API_SECRET:str:none}
+  - name: coinbase
+    api_key: ${CONNECTION_CCXT_CONFIG_EXCHANGES_0_API_KEY:str:none}
+    api_secret: ${CONNECTION_CCXT_CONFIG_EXCHANGES_0_API_SECRET:str:none}
+  - name: kraken
+    api_key: ${CONNECTION_CCXT_CONFIG_EXCHANGES_0_API_KEY:str:none}
+    api_secret: ${CONNECTION_CCXT_CONFIG_EXCHANGES_0_API_SECRET:str:none}
+---
+public_id: eightballer/executor:0.1.0:bafybeigf3xtuhu7ueqrcvpm4i7iudso3vydmolohyidmm2ic4vlctikeva
+type: skill
+models:
+  benchmark_tool:
+    args:
+      log_dir: ${str:/benchmarks}
+  params:
+    args:
+      user_interface:
+        enabled: true
+        custom_component: eightballer/solver_ui
+      cex_data_retrieval_config:
+        enabled: true
+        reporting_enabled: true
+        exchange_ids:
+        - deribit
+        - coinbase
+        - kraken
+        extra_kwargs:
+          deribit:
+            currency: ETH
+        backoff: 1.0
+        retries: 3
+      dex_data_retrieval_config:
+        enabled: true
+        reporting_enabled: true
+        exchange_ids:
+        - balancer
+        - uniswap
+        - 1inch
+        extra_kwargs:
+          lyra:
+            currency: ETH
+        backoff: 1.0
+        retries: 3
+      setup:
+        all_participants: ${list:["0x0000000000000000000000000000000000000000"]}
+        consensus_threshold: ${int:null}
+        safe_contract_address: ${str:0x0000000000000000000000000000000000000000}
+      cleanup_history_depth: ${int:1}
+      cleanup_history_depth_current: ${int:null}
+      finalize_timeout: ${float:60.0}
+      genesis_config:
+        genesis_time: ${str:2022-09-26T00:00:00.000000000Z}
+        chain_id: ${str:chain-c4daS1}
+        consensus_params:
+          block:
+            max_bytes: ${str:22020096}
+            max_gas: ${str:-1}
+            time_iota_ms: ${str:1000}
+          evidence:
+            max_age_num_blocks: ${str:100000}
+            max_age_duration: ${str:172800000000000}
+            max_bytes: ${str:1048576}
+          validator:
+            pub_key_types: ${list:["ed25519"]}
+          version: ${dict:{}}
+        voting_power: ${str:10}
+      keeper_allowed_retries: ${int:3}
+      keeper_timeout: ${float:30.0}
+      max_attempts: ${int:10}
+      reset_tendermint_after: ${int:2}
+      retry_attempts: ${int:400}
+      retry_timeout: ${int:3}
+      request_retry_delay: ${float:1.0}
+      request_timeout: ${float:10.0}
+      service_id: ${str:qs_solver}
+      tendermint_url: ${str:http://localhost:26657}
+      tendermint_com_url: ${str:http://localhost:8080}
+      tendermint_check_sleep_delay: ${int:3}
+      tendermint_max_retries: ${int:5}
+      tx_timeout: ${float:10.0}
+      round_timeout_seconds: ${float:350.0}
+      validate_timeout: ${int:1205}
+      history_check_timeout: ${int:1205}
+      reset_pause_duration: ${int:30}
+      max_healthcheck: ${int:43200}
+      drand_public_key: ${str:868f005eb8e6e4ca0a47c8a77ceaa5309a47978a7c71bc5cce96366b5d7a569937c529eeda66c7293784a9402801af31}
+      service_registry_address: ${str:0x9338b5153AE39BB89f50468E608eD9d764B755fD}
+      agent_registry_address: ${str:0xE49CB081e8d96920C38aA7AB90cb0294ab4Bc8EA}
+      share_tm_config_on_startup: ${bool:false}
+      sleep_time: ${int:10}
+      tendermint_p2p_url: ${str:localhost:26656}
+      termination_sleep: ${int:900}
+      termination_from_block: ${int:0}
+      use_termination: ${bool:false}
+      on_chain_service_id: ${int:null}
+      blacklisting_duration: ${int:3600}
+      ipfs_address: ${str:https://gateway.autonolas.tech/ipfs/}
+      staking_contract_address: ${str:0x2Ef503950Be67a98746F484DA0bBAdA339DF3326}
+---
+public_id: eightballer/dcxt:0.1.0
+type: connection
+config:
+  target_skill_id: eightballer/chained_dex_app:0.1.0
+  exchanges:
+  - name: balancer
+    key_path: ethereum_private_key.txt
+    wallet: null
+    environment: prod
+    kwargs:
+      chain_id: mainnet
+      rpc_url: https://rpc.ankr.com/eth
+      etherscan_api_key: YOUR_ETHERSCAN_API_KEY
+  - name: 1inch
+    key_path: ethereum_private_key.txt
+    wallet: null
+    environment: prod
+    kwargs:
+      chain_id: mainnet
+      rpc_url: https://rpc.ankr.com/eth
+  - name: uniswap
+    key_path: ethereum_private_key.txt
+    wallet: null
+    environment: prod
+    kwargs:
+      chain_id: mainnet
+      rpc_url: https://rpc.ankr.com/eth

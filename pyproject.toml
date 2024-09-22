@@ -17,7 +17,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.12"
+python = ">=3.9,<=3.11.9"
 cython = "<3.0.0"
 open-aea-ledger-solana = "==1.55.0"
 open-aea-ledger-cosmos = "==1.55.0"
@@ -27,6 +27,11 @@ open-aea-cli-ipfs = "==1.55.0"
 open-aea-test-autonomy = "==0.15.2"
 open-autonomy = "==0.15.2"
 autonomy-dev = {extras = ["all"], version = ">=0.2.64,<=0.2.75"}
+ccxt = "^4.4.5"
+balpy = {path = "third_party/balpy"}
+lyra-v2-client = {path = "third_party/lyra_client"}
+pandas = "==1.3.5"
+numpy = ">=1.26.0,<2"
 
 
 [tool.poetry.dev-dependencies]

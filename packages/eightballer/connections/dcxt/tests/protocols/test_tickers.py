@@ -2,7 +2,6 @@
 import asyncio
 from unittest.mock import MagicMock
 
-import ccxt
 import pytest
 from aea.mail.base import Envelope
 
@@ -66,7 +65,7 @@ class TestConnectionHandlesExchangeErrors(BaseDcxtConnectionTest):
         )
         # we create a mock object to simulate a timeout
         # simulate a raised exceptionS
-        mocker = MagicMock(side_effect=ccxt.errors.RequestTimeout)
+        mocker = MagicMock(side_effect=ValueError("Timeout"))
         self.connection._exchanges[DEFAULT_EXCHANGE_ID].fetch_tickers = mocker  # pylint: disable=W0212
 
         response = await self.connection.protocol_interface.handle_envelope(envelope)
